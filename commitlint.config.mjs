@@ -1,5 +1,5 @@
 /** @type {import('@commitlint/types').UserConfig} */
-export default {
+const config = {
   extends: ["@commitlint/config-conventional"],
   rules: {
     // Keep summaries scannable in `git log --oneline` and PR titles.
@@ -15,8 +15,10 @@ export default {
         "build", // changes to the build system or dependencies
         "merge", // merging branches
         "docs", // documentation only changes
-        "chores", // maintenance work that doesn't touch src or tests
+        "chore", // maintenance work that doesn't touch src or tests
       ],
     ],
   },
 };
+
+export default config;

@@ -19,25 +19,25 @@ by ESLint, Prettier, Husky, and commitlint (installed via `bun install`) — the
 
 ## 2. Naming conventions
 
-| What                          | Convention                          | Example                                  |
-| ----------------------------- | ------------------------------------ | ----------------------------------------- |
-| Variables, functions          | `camelCase`, descriptive             | `getContactById`, `isLoading`             |
-| React components               | `PascalCase`                        | `ContactCard`, `Button`                   |
-| Component files                | `PascalCase.tsx` (match export)     | `ContactCard.tsx`                         |
-| Non-component files            | `camelCase.ts`                      | `contactService.ts`, `utils.ts`           |
-| Types / interfaces             | `PascalCase`, no Hungarian prefix   | `Contact` (not `IContact`)                |
-| Constants (module-level, fixed)| `UPPER_SNAKE_CASE`                  | `MAX_RETRIES`, `DEFAULT_PAGE_SIZE`        |
-| Booleans                       | prefix `is`/`has`/`should`/`can`    | `isLoading`, `hasError`, `canSubmit`      |
-| Event handlers                 | prefix `handle` (local) / `on` (prop)| `handleSubmit`, `onSubmit`                |
+| What                            | Convention                            | Example                              |
+| ------------------------------- | ------------------------------------- | ------------------------------------ |
+| Variables, functions            | `camelCase`, descriptive              | `getContactById`, `isLoading`        |
+| React components                | `PascalCase`                          | `ContactCard`, `Button`              |
+| Component files                 | `PascalCase.tsx` (match export)       | `ContactCard.tsx`                    |
+| Non-component files             | `camelCase.ts`                        | `contactService.ts`, `utils.ts`      |
+| Types / interfaces              | `PascalCase`, no Hungarian prefix     | `Contact` (not `IContact`)           |
+| Constants (module-level, fixed) | `UPPER_SNAKE_CASE`                    | `MAX_RETRIES`, `DEFAULT_PAGE_SIZE`   |
+| Booleans                        | prefix `is`/`has`/`should`/`can`      | `isLoading`, `hasError`, `canSubmit` |
+| Event handlers                  | prefix `handle` (local) / `on` (prop) | `handleSubmit`, `onSubmit`           |
 
 - No single-letter names except loop indices (`i`, `j`) or well-known math/coordinates (`x`, `y`).
 - No abbreviations that aren't universally obvious (`btn`, `cfg`, `usr`) — spell it out.
-- Name things for what they *are*, not for their type (`contact`, not `contactObj` or `data`).
+- Name things for what they _are_, not for their type (`contact`, not `contactObj` or `data`).
 - Don't reuse a variable name for a different meaning within the same scope.
 
 ### Explanatory variables
 
-Extract expressions into a named variable when the expression's *meaning* isn't obvious from
+Extract expressions into a named variable when the expression's _meaning_ isn't obvious from
 reading it, or when it's reused.
 
 ```ts
@@ -115,15 +115,15 @@ by commitlint via a Husky `commit-msg` hook:
 
 Allowed types: `feat`, `fix`, `hotfix`, `build`, `merge`, `docs`, `chores`.
 
-| Type     | Use for                                              |
-| -------- | ----------------------------------------------------- |
-| `feat`   | a new feature                                          |
-| `fix`    | a bug fix                                              |
-| `hotfix` | urgent production fix                                  |
-| `build`  | build system or dependency changes                     |
-| `merge`  | merging branches                                       |
-| `docs`   | documentation only changes                             |
-| `chores` | maintenance work that doesn't touch src or tests       |
+| Type     | Use for                                          |
+| -------- | ------------------------------------------------ |
+| `feat`   | a new feature                                    |
+| `fix`    | a bug fix                                        |
+| `hotfix` | urgent production fix                            |
+| `build`  | build system or dependency changes               |
+| `merge`  | merging branches                                 |
+| `docs`   | documentation only changes                       |
+| `chores` | maintenance work that doesn't touch src or tests |
 
 ```
 feat(contact): add server-side email validation
@@ -134,7 +134,7 @@ chores(deps): bump eslint to v9
 - One logical change per commit. Don't bundle an unrelated formatting pass into a feature commit.
 - Subject line: minimum 10 characters, maximum 100 characters, imperative mood
   ("add", not "added"/"adds").
-- Explain *why* in the body when the change isn't self-evident from the diff.
+- Explain _why_ in the body when the change isn't self-evident from the diff.
 
 ## 8. Pull request rules
 

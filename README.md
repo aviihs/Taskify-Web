@@ -27,14 +27,14 @@ bun dev        # starts the dev server at http://localhost:3000
 
 Other scripts:
 
-| Command              | Purpose                                      |
-| --------------------- | --------------------------------------------- |
-| `bun run build`       | Production build                              |
-| `bun run start`       | Serve the production build                    |
-| `bun run lint`        | Run ESLint                                    |
-| `bun run lint:fix`    | Run ESLint with autofix                       |
-| `bun run format`      | Format the codebase with Prettier             |
-| `bun run format:check`| Check formatting without writing changes      |
+| Command                | Purpose                                  |
+| ---------------------- | ---------------------------------------- |
+| `bun run build`        | Production build                         |
+| `bun run start`        | Serve the production build               |
+| `bun run lint`         | Run ESLint                               |
+| `bun run lint:fix`     | Run ESLint with autofix                  |
+| `bun run format`       | Format the codebase with Prettier        |
+| `bun run format:check` | Check formatting without writing changes |
 
 ## Project structure
 
