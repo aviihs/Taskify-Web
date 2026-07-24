@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { fontMono, fontSans } from "@/lib/fonts";
-import "./globals.css";
 import { Inter } from "next/font/google";
+
+import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -25,7 +27,7 @@ export default function RootLayout({
         fontSans.variable,
         fontMono.variable,
         "font-sans",
-        inter.variable,
+        inter.variable
       )}
     >
       <body className="flex min-h-full flex-col">{children}</body>
