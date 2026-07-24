@@ -14,5 +14,5 @@ export async function getContactById(id: string): Promise<IContact | null> {
     },
   ];
 
-  return contacts.find((contact) => contact.id === id) || null;
+  return contacts.find(contact => contact.id === id) || null;
 }
