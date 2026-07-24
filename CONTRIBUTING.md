@@ -73,7 +73,19 @@ if (retries > MAX_RETRIES) { ... }
 - Don't add a prop, variant, or config flag for a single call site — inline it until a second
   real use case appears.
 
-## 4. TypeScript
+## 4. Styling & design tokens
+
+- Design tokens (colors, radius, fonts) live in `src/app/globals.css` under `:root` / `.dark`
+  and are exposed to Tailwind via `@theme inline`. Add a token there — never hardcode a hex
+  color or one-off `px` value in a component.
+- Fonts are loaded once, in `src/lib/fonts.ts` (via `next/font`), and wired to the
+  `--font-sans` / `--font-mono` tokens in `globals.css`. To swap or add a family, edit that one
+  file — don't call `next/font` from anywhere else.
+- A class used the same way in 3+ places becomes a Tailwind v4 `@utility` in `globals.css`
+  (not `@layer components`, which is v3 syntax) instead of copy-pasted class strings.
+- Always compose classes with `cn()` (`src/lib/utils.ts`), never manual string concatenation.
+
+## 5. TypeScript
 
 - `strict` mode is on — keep it that way. No `any`; use `unknown` and narrow it, or fix the type.
 - Prefer `interface` for object shapes that represent entities/props, `type` for unions,
@@ -81,7 +93,7 @@ if (retries > MAX_RETRIES) { ... }
 - Don't disable ESLint/TypeScript rules inline (`// eslint-disable`, `// @ts-ignore`) without a
   comment explaining why — and treat it as a last resort, not a shortcut.
 
-## 5. Formatting & linting
+## 6. Formatting & linting
 
 Formatting is automated — don't hand-format or bikeshed it in review.
 
@@ -92,7 +104,7 @@ Formatting is automated — don't hand-format or bikeshed it in review.
 A pre-commit hook (Husky + lint-staged) runs ESLint and Prettier automatically on staged files.
 Commits with lint errors are rejected — fix them rather than bypassing the hook.
 
-## 6. Branch naming
+## 7. Branch naming
 
 ```
 <type>/<short-kebab-description>
@@ -100,7 +112,7 @@ Commits with lint errors are rejected — fix them rather than bypassing the hoo
 
 Types: `feat`, `fix`, `hotfix`, `build`, `merge`, `docs`, `chores`. Example: `feat/contact-form-validation`.
 
-## 7. Commit rules
+## 8. Commit rules
 
 Commits must follow [Conventional Commits](https://www.conventionalcommits.org/) style, enforced
 by commitlint via a Husky `commit-msg` hook:
@@ -136,7 +148,7 @@ chores(deps): bump eslint to v9
   ("add", not "added"/"adds").
 - Explain _why_ in the body when the change isn't self-evident from the diff.
 
-## 8. Pull request rules
+## 9. Pull request rules
 
 - Keep PRs small and scoped to one concern — easier to review, easier to revert.
 - Fill out the [PR template](.github/PULL_REQUEST_TEMPLATE.md) completely; don't delete
@@ -150,7 +162,7 @@ chores(deps): bump eslint to v9
   and about to merge, so reviewers can see what changed between passes.
 - Squash-merge once approved, using the Conventional Commit title.
 
-## 9. First-time setup
+## 10. First-time setup
 
 ```sh
 bun install     # installs deps and activates Husky hooks via the "prepare" script

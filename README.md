@@ -43,7 +43,7 @@ src/
   app/          # routes, layouts, and global styles (App Router)
   components/
     ui/         # base/shadcn primitives (Button, Input, ...)
-  lib/          # shared utilities (e.g. cn())
+  lib/          # shared utilities (cn()) and design-system config (fonts.ts)
   services/     # data-fetching / business logic, decoupled from UI
   types/        # shared TypeScript types
   data/         # static/seed content
