@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
+import { cn, gapToRem } from "@/lib/utils";
 
-import { IFlexContainerProps } from "../types";
+import { FlexContainerProps } from "../types";
 
 export default function Flex({
   className = "",
@@ -8,7 +8,7 @@ export default function Flex({
   gap,
   md,
   ...rest
-}: IFlexContainerProps) {
+}: FlexContainerProps) {
   let newClassNames = "";
   if (md) newClassNames += "md:flex-row ";
 
@@ -17,7 +17,7 @@ export default function Flex({
       className={cn("flex flex-col", newClassNames, className)}
       {...rest}
       style={{
-        gap: gap ? `${gap * 0.25}rem` : "",
+        gap: gapToRem(gap),
       }}
     >
       {children}

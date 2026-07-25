@@ -4,18 +4,13 @@ import { Icon as IconifyIcon } from "@iconify/react";
 
 import { cn } from "@/lib/utils";
 
-interface IIconProps extends React.HTMLAttributes<HTMLSpanElement> {
+interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   name: string; // e.g. "lucide:search" or "mdi:home"
   className?: string;
   onClick?: () => void;
 }
 
-export default function Icon({
-  name,
-  className,
-  onClick,
-  ...rest
-}: IIconProps) {
+export default function Icon({ name, className, onClick, ...rest }: IconProps) {
   return (
     <span
       role="presentation"

@@ -4,9 +4,10 @@ import { CSSTransition } from "react-transition-group";
 
 import IconGlyph from "@/components/common/icon";
 import { FlexRow } from "@/components/common/layout";
+import { MODAL_CLOSE_BUTTON_LABEL } from "@/constants/common-content";
 import { cn } from "@/lib/utils";
 
-interface IModalProps {
+interface ModalProps {
   title: string;
   Icon?: string; // iconify id, e.g. "lucide:alert-triangle"
   subtitle?: string;
@@ -30,7 +31,7 @@ export default function Modal({
   headerContent,
   zIndex = 1111,
   hideCloseButton,
-}: IModalProps) {
+}: ModalProps) {
   const nodeRef = useRef(null);
 
   return (
@@ -95,7 +96,9 @@ export default function Modal({
                         name="lucide:x"
                         className="text-muted-foreground"
                       />
-                      <span className="sr-only">Close modal</span>
+                      <span className="sr-only">
+                        {MODAL_CLOSE_BUTTON_LABEL}
+                      </span>
                     </button>
                   )}
                 </div>

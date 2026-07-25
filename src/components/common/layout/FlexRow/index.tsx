@@ -1,19 +1,19 @@
-import { cn } from "@/lib/utils";
+import { cn, gapToRem } from "@/lib/utils";
 
-import { IFlexContainerProps } from "../types";
+import { FlexContainerProps } from "../types";
 
 export default function FlexRow({
   className = "",
   children,
   gap,
   ...rest
-}: IFlexContainerProps) {
+}: FlexContainerProps) {
   return (
     <div
       className={cn("flex flex-row", className)}
       {...rest}
       style={{
-        gap: gap ? `${gap * 0.25}rem` : "",
+        gap: gapToRem(gap),
       }}
     >
       {children}

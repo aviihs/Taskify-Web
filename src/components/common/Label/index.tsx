@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface ILabelProps {
+interface LabelProps {
   children: ReactNode;
   htmlFor?: string | number;
   required?: boolean;
@@ -14,7 +14,7 @@ export default function Label({
   htmlFor,
   required,
   className,
-}: ILabelProps) {
+}: LabelProps) {
   return (
     <label
       className={cn("text-foreground text-sm font-medium", className)}

@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
+import { cn, gapToRem } from "@/lib/utils";
 
-import { IGridContainerProps } from "../types";
+import { GridContainerProps } from "../types";
 
 export default function Grid({
   className = "",
@@ -8,13 +8,13 @@ export default function Grid({
   cols,
   gap,
   ...rest
-}: IGridContainerProps) {
+}: GridContainerProps) {
   return (
     <div
       className={cn("grid md:grid-cols-2", gap && "gap-x-2", className)}
       style={{
         gridTemplateColumns: cols ? `repeat(${cols}, minmax(0, 1fr))` : "",
-        gap: gap ? `${gap * 0.25}rem` : "",
+        gap: gapToRem(gap),
       }}
       {...rest}
     >
