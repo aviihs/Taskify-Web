@@ -1,8 +1,8 @@
-import { IContact } from "@/types/IContact";
+import { Contact } from "@/types/Contact";
 
-export async function getContactById(id: string): Promise<IContact | null> {
+export async function getContactById(id: string): Promise<Contact | null> {
   // Simulate fetching contact from a database or API
-  const contacts: IContact[] = [
+  const contacts: Contact[] = [
     {
       id: "1",
       name: "John Doe",

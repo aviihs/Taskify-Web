@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { fontMono, fontSans } from "@/lib/fonts";
+import { LocaleProvider } from "@/lib/i18n/LocaleProvider";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -30,7 +31,9 @@ export default function RootLayout({
         inter.variable
       )}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <LocaleProvider>{children}</LocaleProvider>
+      </body>
     </html>
   );
 }

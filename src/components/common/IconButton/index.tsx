@@ -3,7 +3,7 @@
 import Icon from "@/components/common/icon";
 import { cn } from "@/lib/utils";
 
-interface IIconButtonProps {
+interface IconButtonProps {
   name: string; // iconify id, e.g. "lucide:search"
   className?: string;
   onClick?: () => void;
@@ -13,7 +13,7 @@ export default function IconButton({
   name,
   className,
   onClick,
-}: IIconButtonProps) {
+}: IconButtonProps) {
   return (
     <button
       type="button"

@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
+import { cn, gapToRem } from "@/lib/utils";
 
-import { IFlexContainerProps } from "../types";
+import { FlexContainerProps } from "../types";
 
 export default function FlexColumn({
   className = "",
@@ -8,12 +8,12 @@ export default function FlexColumn({
   gap,
   style,
   ...rest
-}: IFlexContainerProps) {
+}: FlexContainerProps) {
   return (
     <div
       className={cn("flex flex-col", className)}
       style={{
-        gap: gap ? `${gap * 0.25}rem` : "",
+        gap: gapToRem(gap),
         ...style,
       }}
       {...rest}

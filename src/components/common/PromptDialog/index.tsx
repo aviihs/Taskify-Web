@@ -2,7 +2,7 @@ import { MouseEventHandler, ReactNode } from "react";
 
 import Modal from "@/components/common/Modal";
 
-interface IPromptDialogProps {
+interface PromptDialogProps {
   title: string;
   iconName?: string;
   show: boolean;
@@ -16,7 +16,7 @@ export default function PromptDialog({
   show = false,
   onClose = () => {},
   children,
-}: IPromptDialogProps) {
+}: PromptDialogProps) {
   return (
     <Modal
       show={show}

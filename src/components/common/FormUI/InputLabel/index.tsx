@@ -1,7 +1,7 @@
 import ToolTip from "@/components/common/ToolTip";
 import { cn } from "@/lib/utils";
 
-interface IInputLabelProps {
+interface InputLabelProps {
   label: string;
   tooltipMessage?: string;
   asterisk?: boolean;
@@ -13,7 +13,7 @@ export default function InputLabel({
   tooltipMessage,
   asterisk,
   disabled,
-}: IInputLabelProps) {
+}: InputLabelProps) {
   return (
     <div
       className={cn("flex h-5 items-center", {
@@ -24,7 +24,7 @@ export default function InputLabel({
       {asterisk ? <span className="text-destructive">&nbsp;*</span> : null}
       <div className="ml-1">
         {tooltipMessage ? (
-          <ToolTip name="lucide:info" message={tooltipMessage || "tooltip"} />
+          <ToolTip name="lucide:info" message={tooltipMessage} />
         ) : null}
       </div>
     </div>
