@@ -1,0 +1,187 @@
+{
+  "appName": "Taskify",
+  "lastUpdated": "October 2, 2026",
+  "contactEmail": "privacy@taskify.app",
+  "intro": "Taskify helps you and your team plan projects, manage tasks and stay on track. This policy explains what information the Taskify mobile app and web app collect, why we collect it, and the choices you have. We have kept it short and in plain language.",
+  "highlights": [
+    {
+      "icon": "lucide:badge-dollar-sign",
+      "title": "We never sell your data",
+      "description": "No ads, no data brokers, no third-party trackers."
+    },
+    {
+      "icon": "lucide:fingerprint",
+      "title": "Biometrics stay on your phone",
+      "description": "Fingerprint and Face ID are checked by your device, never sent to us."
+    },
+    {
+      "icon": "lucide:lock-keyhole",
+      "title": "Encrypted in transit",
+      "description": "All traffic uses HTTPS and passwords are stored as one-way hashes."
+    },
+    {
+      "icon": "lucide:user-x",
+      "title": "Delete anytime",
+      "description": "Remove your account from inside the app, no email needed."
+    }
+  ],
+  "sections": [
+    {
+      "id": "information-we-collect",
+      "icon": "lucide:database",
+      "title": "Information we collect",
+      "paragraphs": [
+        "We only collect what Taskify needs to work. Most of it is information you type in yourself."
+      ],
+      "groups": [
+        {
+          "title": "Account details",
+          "items": [
+            "First name, last name and email address when you register",
+            "A username (chosen by you, or generated if you skip it)",
+            "Your password, which we store only as a bcrypt hash and can never read"
+          ]
+        },
+        {
+          "title": "Optional profile details",
+          "items": [
+            "Date of birth, gender, phone number and a short bio",
+            "A profile photo, if you choose one from your camera or photo library"
+          ]
+        },
+        {
+          "title": "Content you create",
+          "items": [
+            "Projects, teams, tasks, due dates and statuses",
+            "Comments and the files you attach to tasks",
+            "An activity history of changes (for example, who moved a task) and in-app notifications"
+          ]
+        },
+        {
+          "title": "Technical information",
+          "items": [
+            "Sign-in tokens that keep you logged in",
+            "Basic server logs (such as request time and errors) used to keep the service running"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-we-use",
+      "icon": "lucide:sparkles",
+      "title": "How we use your information",
+      "items": [
+        "To create your account, sign you in and keep your session secure",
+        "To send one-time codes (OTP) for email verification and password resets",
+        "To show your tasks, projects and teams across your devices",
+        "To let teammates see your name, photo and the work you share with them",
+        "To send in-app notifications about tasks assigned to you or changes you follow",
+        "To fix bugs, prevent abuse and keep Taskify reliable"
+      ],
+      "note": "We do not use your information for advertising, and we do not build marketing profiles."
+    },
+    {
+      "id": "device-permissions",
+      "icon": "lucide:smartphone",
+      "title": "Device permissions",
+      "paragraphs": [
+        "The Taskify app asks for a small number of permissions. You can turn each one off in your device settings."
+      ],
+      "groups": [
+        {
+          "title": "Biometrics (Fingerprint / Face ID)",
+          "items": [
+            "Used only to unlock the app if you turn on App Lock",
+            "The check happens inside your phone's secure hardware; Taskify only receives a yes or no answer",
+            "Your fingerprint or face data is never stored by Taskify or sent to our servers"
+          ]
+        },
+        {
+          "title": "Camera and photos",
+          "items": [
+            "Used only when you pick a profile photo or attach an image",
+            "Only the image you select is uploaded; we never browse your library"
+          ]
+        },
+        {
+          "title": "Internet",
+          "items": ["Needed to sync your tasks with the Taskify server"]
+        }
+      ]
+    },
+    {
+      "id": "stored-on-device",
+      "icon": "lucide:hard-drive",
+      "title": "What is stored on your device",
+      "items": [
+        "Sign-in tokens, kept in the operating system's secure storage (Keychain on iOS, Keystore on Android)",
+        "A copy of your basic profile so the app opens quickly",
+        "Your preferences, such as light or dark theme and whether App Lock is on"
+      ],
+      "note": "Signing out clears your sign-in tokens from the device."
+    },
+    {
+      "id": "sharing",
+      "icon": "lucide:share-2",
+      "title": "Who we share it with",
+      "paragraphs": [
+        "We do not sell, rent or trade your personal information. We share it only in these cases:"
+      ],
+      "items": [
+        "Your team: members of the teams and projects you join can see your name, username, photo and the tasks, comments and files you share there",
+        "Workspace admins: Taskify administrators can view user accounts and tasks to manage the service and handle reports",
+        "Service providers: our cloud hosting provider runs the Taskify server and database, and an email provider delivers verification and reset codes. They process data only on our behalf",
+        "Legal reasons: if we are required to by law, or to protect the safety of users"
+      ]
+    },
+    {
+      "id": "security",
+      "icon": "lucide:shield-check",
+      "title": "How we keep it safe",
+      "items": [
+        "All communication between the app and our server uses HTTPS",
+        "Passwords are hashed with bcrypt before they are saved",
+        "Short-lived access tokens with refresh tokens that are revoked when you sign out",
+        "Optional biometric App Lock to protect the app on your phone"
+      ],
+      "note": "No system is perfectly secure, but we work to protect your information and will notify you if a breach affects your data."
+    },
+    {
+      "id": "retention",
+      "icon": "lucide:clock",
+      "title": "How long we keep it",
+      "paragraphs": [
+        "We keep your information while your account is active. One-time codes and password reset links expire automatically after a short time.",
+        "When you delete your account, it is deactivated immediately, you are signed out on every device, and your profile is no longer visible to others. If you would also like the remaining records permanently erased from our database, email us and we will do so within 30 days."
+      ]
+    },
+    {
+      "id": "your-rights",
+      "icon": "lucide:user-cog",
+      "title": "Your rights and choices",
+      "items": [
+        "Access and update your profile at any time from the Profile screen",
+        "Change your password from inside the app",
+        "Turn App Lock and biometric unlock on or off",
+        "Delete your account from Profile settings",
+        "Ask us for a copy of your data or for permanent erasure by email"
+      ]
+    },
+    {
+      "id": "children",
+      "icon": "lucide:baby",
+      "title": "Children",
+      "paragraphs": [
+        "Taskify is not intended for children under 13, and we do not knowingly collect information from them. If you believe a child has created an account, contact us and we will remove it."
+      ]
+    },
+    {
+      "id": "changes",
+      "icon": "lucide:file-pen-line",
+      "title": "Changes to this policy",
+      "paragraphs": [
+        "We may update this policy as Taskify grows. When we make important changes we will update the date at the top of this page and, where appropriate, let you know in the app."
+      ]
+    }
+  ]
+}

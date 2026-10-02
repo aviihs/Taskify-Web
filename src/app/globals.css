@@ -48,6 +48,18 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --color-taskify-primary: var(--taskify-primary);
+  --color-taskify-primary-dark: var(--taskify-primary-dark);
+  --color-taskify-secondary: var(--taskify-secondary);
+  --color-taskify-accent: var(--taskify-accent);
+  --color-taskify-link: var(--taskify-link);
+  --color-taskify-background: var(--taskify-background);
+  --color-taskify-surface: var(--taskify-surface);
+  --color-taskify-surface-variant: var(--taskify-surface-variant);
+  --color-taskify-text: var(--taskify-text);
+  --color-taskify-text-secondary: var(--taskify-text-secondary);
+  --color-taskify-text-muted: var(--taskify-text-muted);
+  --color-taskify-border: var(--taskify-border);
 }
 
 :root {
@@ -83,6 +95,20 @@
   --sidebar-ring: oklch(0.708 0 0);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+
+  /* Taskify brand — mirrors taskify_app AppColors / AppPalette.light */
+  --taskify-primary: #585c83;
+  --taskify-primary-dark: #3e425f;
+  --taskify-secondary: #686fb1;
+  --taskify-accent: #8c93d9;
+  --taskify-link: #585c83;
+  --taskify-background: #f6f7fb;
+  --taskify-surface: #ffffff;
+  --taskify-surface-variant: #e8eaf4;
+  --taskify-text: #1f2435;
+  --taskify-text-secondary: #5f6785;
+  --taskify-text-muted: #9097b3;
+  --taskify-border: #d8dceb;
 }
 
 .dark {
@@ -117,6 +143,16 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Taskify brand — mirrors taskify_app AppPalette.dark */
+  --taskify-link: #a5abea;
+  --taskify-background: #121522;
+  --taskify-surface: #1e2235;
+  --taskify-surface-variant: #2a2e45;
+  --taskify-text: #e8eaf4;
+  --taskify-text-secondary: #a9aec8;
+  --taskify-text-muted: #7a7f9a;
+  --taskify-border: #353a55;
 }
 
 @layer base {
