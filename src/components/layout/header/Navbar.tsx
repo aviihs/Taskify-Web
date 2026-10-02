@@ -43,10 +43,13 @@ export default function Navbar() {
               aria-label="Open menu"
               className="text-taskify-text hover:bg-taskify-surface-variant flex size-10 cursor-pointer list-none items-center justify-center rounded-xl"
             >
-              <Icon name="lucide:menu" className="text-xl group-open:hidden" />
+              <Icon
+                name="lucide:menu"
+                className="text-xl group-open:hidden lg:text-xl"
+              />
               <Icon
                 name="lucide:x"
-                className="hidden text-xl group-open:flex"
+                className="hidden text-xl group-open:flex lg:text-xl"
               />
             </summary>
             <ul className="bg-taskify-surface border-taskify-border/70 absolute top-12 right-0 w-52 rounded-2xl border p-2 shadow-xl shadow-black/10">

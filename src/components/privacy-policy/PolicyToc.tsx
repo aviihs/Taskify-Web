@@ -26,7 +26,10 @@ function TocLinks({ sections }: PolicyTocProps) {
           href="#contact"
           className="text-taskify-link hover:bg-taskify-surface-variant flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-semibold transition-colors"
         >
-          <Icon name="lucide:mail" className="w-5 cursor-pointer text-sm" />
+          <Icon
+            name="lucide:mail"
+            className="w-5 cursor-pointer text-sm lg:text-sm"
+          />
           Contact us
         </a>
       </li>

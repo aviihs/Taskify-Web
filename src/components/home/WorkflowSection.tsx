@@ -40,7 +40,7 @@ export default function WorkflowSection({ workflow }: WorkflowSectionProps) {
                   >
                     <Icon
                       name={stage.icon}
-                      className="cursor-default text-lg"
+                      className="cursor-default text-lg lg:text-lg"
                     />
                   </span>
                   <span className="text-sm font-semibold">{stage.label}</span>

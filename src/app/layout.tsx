@@ -68,7 +68,7 @@ export default function RootLayout({
         inter.variable
       )}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="bg-taskify-background flex min-h-full flex-col">
         <LocaleProvider>
           <Navbar />
           <div className="flex-1">{children}</div>

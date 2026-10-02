@@ -19,7 +19,10 @@ export default function FeatureGrid({ features }: FeatureGridProps) {
             className="bg-taskify-surface border-taskify-border/70 group hover:border-taskify-accent/60 rounded-2xl border p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
           >
             <span className="bg-taskify-surface-variant text-taskify-link group-hover:from-taskify-primary group-hover:to-taskify-secondary flex size-12 items-center justify-center rounded-xl transition-colors group-hover:bg-linear-to-br group-hover:text-white">
-              <Icon name={feature.icon} className="cursor-default text-2xl" />
+              <Icon
+                name={feature.icon}
+                className="cursor-default text-2xl lg:text-2xl"
+              />
             </span>
             <h3 className="text-taskify-text mt-5 text-lg font-semibold">
               {feature.title}

@@ -37,7 +37,10 @@ export default function Footer() {
             href={`mailto:${site.contactEmail}`}
             className="text-taskify-link mt-4 inline-flex items-center gap-2 text-sm font-semibold hover:underline"
           >
-            <Icon name="lucide:mail" className="cursor-pointer text-sm" />
+            <Icon
+              name="lucide:mail"
+              className="cursor-pointer text-sm lg:text-sm"
+            />
             {site.contactEmail}
           </a>
         </div>

@@ -37,7 +37,10 @@ export default function SecuritySection({ security }: SecuritySectionProps) {
               className="bg-taskify-surface border-taskify-border/70 flex gap-4 rounded-2xl border p-5"
             >
               <span className="from-taskify-primary to-taskify-secondary flex size-12 shrink-0 items-center justify-center rounded-xl bg-linear-to-br text-white">
-                <Icon name={item.icon} className="cursor-default text-2xl" />
+                <Icon
+                  name={item.icon}
+                  className="cursor-default text-2xl lg:text-2xl"
+                />
               </span>
               <div>
                 <h3 className="text-taskify-text font-semibold">

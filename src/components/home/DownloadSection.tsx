@@ -27,7 +27,7 @@ export default function DownloadSection({ download }: DownloadSectionProps) {
               const isAvailable = store.href !== "";
               const badge = (
                 <>
-                  <Icon name={store.icon} className="text-2xl" />
+                  <Icon name={store.icon} className="text-2xl lg:text-2xl" />
                   <span className="text-left leading-tight">
                     <span className="block text-[11px] text-white/70">
                       {isAvailable ? store.caption : download.comingSoonLabel}

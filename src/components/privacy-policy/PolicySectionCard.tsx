@@ -40,7 +40,10 @@ export default function PolicySectionCard({
     >
       <div className="mb-5 flex items-center gap-4">
         <span className="bg-taskify-surface-variant text-taskify-link flex size-11 shrink-0 items-center justify-center rounded-xl">
-          <Icon name={section.icon} className="cursor-default text-xl" />
+          <Icon
+            name={section.icon}
+            className="cursor-default text-xl lg:text-xl"
+          />
         </span>
         <div>
           <p className="text-taskify-text-muted text-xs font-semibold tracking-wider uppercase">

@@ -16,7 +16,10 @@ export default function PolicyHighlights({
           className="bg-taskify-surface border-taskify-border/70 rounded-2xl border p-5 shadow-lg shadow-black/5"
         >
           <span className="from-taskify-primary to-taskify-secondary mb-4 flex size-11 items-center justify-center rounded-xl bg-linear-to-br text-white">
-            <Icon name={highlight.icon} className="cursor-default text-xl" />
+            <Icon
+              name={highlight.icon}
+              className="cursor-default text-xl lg:text-xl"
+            />
           </span>
           <h2 className="text-taskify-text font-semibold">{highlight.title}</h2>
           <p className="text-taskify-text-secondary mt-1 text-sm leading-relaxed">

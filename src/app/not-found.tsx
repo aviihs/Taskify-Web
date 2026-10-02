@@ -7,7 +7,10 @@ export default function NotFound() {
     <main className="bg-taskify-background flex min-h-[70vh] items-center justify-center px-4 py-20">
       <div className="max-w-md text-center">
         <span className="from-taskify-primary to-taskify-secondary mx-auto flex size-16 items-center justify-center rounded-2xl bg-linear-to-br text-white shadow-lg shadow-black/10">
-          <Icon name="lucide:list-x" className="cursor-default text-3xl" />
+          <Icon
+            name="lucide:list-x"
+            className="cursor-default text-3xl lg:text-3xl"
+          />
         </span>
         <p className="text-taskify-link mt-6 text-sm font-semibold tracking-wider uppercase">
           404 · Page not found
