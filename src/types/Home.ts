@@ -54,5 +54,6 @@ export interface HomeContent {
     description: string;
     stores: { icon: string; caption: string; label: string; href: string }[];
     comingSoonLabel: string;
+    contactPrompt: string;
   };
 }

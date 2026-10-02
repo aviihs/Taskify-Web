@@ -6,22 +6,22 @@ import PolicyHighlights from "@/components/privacy-policy/PolicyHighlights";
 import PolicySectionCard from "@/components/privacy-policy/PolicySectionCard";
 import PolicyToc from "@/components/privacy-policy/PolicyToc";
 import privacyPolicyContent from "@/data/privacy-policy.json";
+import site from "@/data/site.json";
 import type { PrivacyPolicy } from "@/types/PrivacyPolicy";
 
 const privacyPolicy: PrivacyPolicy = privacyPolicyContent;
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `How ${privacyPolicy.appName} collects, uses and protects your information.`,
+  description: `How ${site.legalName} collects, uses and protects your information.`,
 };
 
 export default function PrivacyPolicyPage() {
-  const { appName, lastUpdated, contactEmail, intro, highlights, sections } =
-    privacyPolicy;
+  const { lastUpdated, intro, highlights, sections } = privacyPolicy;
 
   return (
     <main className="bg-taskify-background text-taskify-text pb-20">
-      <PolicyHero appName={appName} lastUpdated={lastUpdated} intro={intro} />
+      <PolicyHero appName={site.name} lastUpdated={lastUpdated} intro={intro} />
       <PolicyHighlights highlights={highlights} />
 
       <div className="mx-auto mt-12 grid max-w-5xl gap-8 px-4 lg:grid-cols-[230px_1fr]">
@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
               number={index + 1}
             />
           ))}
-          <PolicyContact appName={appName} contactEmail={contactEmail} />
+          <PolicyContact appName={site.name} contactEmail={site.contactEmail} />
         </div>
       </div>
     </main>

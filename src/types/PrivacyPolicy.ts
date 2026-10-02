@@ -20,9 +20,7 @@ export interface PolicySection {
 }
 
 export interface PrivacyPolicy {
-  appName: string;
   lastUpdated: string;
-  contactEmail: string;
   intro: string;
   highlights: PolicyHighlight[];
   sections: PolicySection[];

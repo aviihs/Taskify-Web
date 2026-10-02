@@ -1,8 +1,6 @@
 {
-  "appName": "Taskify",
   "lastUpdated": "October 2, 2026",
-  "contactEmail": "privacy@taskify.app",
-  "intro": "Taskify helps you and your team plan projects, manage tasks and stay on track. This policy explains what information the Taskify mobile app and web app collect, why we collect it, and the choices you have. We have kept it short and in plain language.",
+  "intro": "Taskify (\"Taskify\", \"we\", \"us\" or \"our\") helps you and your team plan projects, manage tasks and stay on track. This policy explains what information the Taskify mobile app and website collect, why we collect it, and the choices you have. We have kept it short and in plain language.",
   "highlights": [
     {
       "icon": "lucide:badge-dollar-sign",
@@ -26,6 +24,24 @@
     }
   ],
   "sections": [
+    {
+      "id": "who-we-are",
+      "icon": "lucide:building-2",
+      "title": "Who we are",
+      "paragraphs": [
+        "Taskify is the provider of the Taskify mobile app and website and is responsible for your personal information under this policy."
+      ],
+      "groups": [
+        {
+          "title": "Legal name",
+          "items": ["Taskify"]
+        },
+        {
+          "title": "Contact email",
+          "items": ["taskify2026@gmail.com"]
+        }
+      ]
+    },
     {
       "id": "information-we-collect",
       "icon": "lucide:database",
@@ -152,7 +168,7 @@
       "title": "How long we keep it",
       "paragraphs": [
         "We keep your information while your account is active. One-time codes and password reset links expire automatically after a short time.",
-        "When you delete your account, it is deactivated immediately, you are signed out on every device, and your profile is no longer visible to others. If you would also like the remaining records permanently erased from our database, email us and we will do so within 30 days."
+        "When you delete your account, it is deactivated immediately, you are signed out on every device, and your profile is no longer visible to others. If you would also like the remaining records permanently erased from our database, email us at taskify2026@gmail.com and we will do so within 30 days."
       ]
     },
     {
@@ -164,7 +180,7 @@
         "Change your password from inside the app",
         "Turn App Lock and biometric unlock on or off",
         "Delete your account from Profile settings",
-        "Ask us for a copy of your data or for permanent erasure by email"
+        "Ask us for a copy of your data or for permanent erasure by emailing taskify2026@gmail.com"
       ]
     },
     {
@@ -172,7 +188,7 @@
       "icon": "lucide:baby",
       "title": "Children",
       "paragraphs": [
-        "Taskify is not intended for children under 13, and we do not knowingly collect information from them. If you believe a child has created an account, contact us and we will remove it."
+        "Taskify is not intended for children under 13, and we do not knowingly collect information from them. If you believe a child has created an account, email us at taskify2026@gmail.com and we will remove it."
       ]
     },
     {

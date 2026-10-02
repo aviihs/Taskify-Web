@@ -1,4 +1,5 @@
 import Icon from "@/components/common/icon";
+import site from "@/data/site.json";
 import type { HomeContent } from "@/types/Home";
 
 interface DownloadSectionProps {
@@ -58,6 +59,16 @@ export default function DownloadSection({ download }: DownloadSectionProps) {
               );
             })}
           </ul>
+
+          <p className="mt-8 text-sm text-white/70">
+            {download.contactPrompt}{" "}
+            <a
+              href={`mailto:${site.contactEmail}`}
+              className="font-semibold text-white underline-offset-4 hover:underline"
+            >
+              {site.contactEmail}
+            </a>
+          </p>
         </div>
       </div>
     </section>
