@@ -36,7 +36,7 @@ export default function PolicySectionCard({
   return (
     <section
       id={section.id}
-      className="bg-taskify-surface border-taskify-border/70 scroll-mt-8 rounded-2xl border p-6 sm:p-8"
+      className="bg-taskify-surface border-taskify-border/70 scroll-mt-24 rounded-2xl border p-6 sm:p-8"
     >
       <div className="mb-5 flex items-center gap-4">
         <span className="bg-taskify-surface-variant text-taskify-link flex size-11 shrink-0 items-center justify-center rounded-xl">

@@ -30,7 +30,7 @@ export default function Navbar() {
 
         <Link
           href="/#download"
-          className="from-taskify-primary to-taskify-secondary rounded-xl bg-linear-to-r px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[#585c83]/25 transition-transform hover:-translate-y-0.5"
+          className="from-taskify-primary to-taskify-secondary shadow-taskify-primary/25 rounded-xl bg-linear-to-r px-4 py-2 text-sm font-semibold text-white shadow-md transition-transform hover:-translate-y-0.5"
         >
           Get the app
         </Link>

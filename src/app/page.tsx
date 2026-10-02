@@ -1,3 +1,27 @@
+import DownloadSection from "@/components/home/DownloadSection";
+import FeatureGrid from "@/components/home/FeatureGrid";
+import HomeHero from "@/components/home/HomeHero";
+import SecuritySection from "@/components/home/SecuritySection";
+import StatsStrip from "@/components/home/StatsStrip";
+import StepsSection from "@/components/home/StepsSection";
+import WorkflowSection from "@/components/home/WorkflowSection";
+import homeContent from "@/data/home.json";
+import type { HomeContent } from "@/types/Home";
+
+const home = homeContent as HomeContent;
+
 export default function HomePage() {
-  return <div>Home Page</div>;
+  return (
+    <main className="bg-taskify-background space-y-24 pb-24 sm:space-y-32">
+      <div>
+        <HomeHero hero={home.hero} />
+        <StatsStrip stats={home.stats} />
+      </div>
+      <FeatureGrid features={home.features} />
+      <WorkflowSection workflow={home.workflow} />
+      <SecuritySection security={home.security} />
+      <StepsSection steps={home.steps} />
+      <DownloadSection download={home.download} />
+    </main>
+  );
 }

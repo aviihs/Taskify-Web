@@ -12,7 +12,7 @@ export default function PolicyContact({
   return (
     <section
       id="contact"
-      className="from-taskify-primary to-taskify-secondary relative scroll-mt-8 overflow-hidden rounded-2xl bg-linear-to-br p-6 text-white sm:p-8"
+      className="from-taskify-primary to-taskify-secondary relative scroll-mt-24 overflow-hidden rounded-2xl bg-linear-to-br p-6 text-white sm:p-8"
     >
       <div
         aria-hidden
