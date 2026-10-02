@@ -11,7 +11,7 @@ import type { PrivacyPolicy } from "@/types/PrivacyPolicy";
 const privacyPolicy: PrivacyPolicy = privacyPolicyContent;
 
 export const metadata: Metadata = {
-  title: `Privacy Policy · ${privacyPolicy.appName}`,
+  title: "Privacy Policy",
   description: `How ${privacyPolicy.appName} collects, uses and protects your information.`,
 };
 
@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
     privacyPolicy;
 
   return (
-    <main className="bg-taskify-background text-taskify-text min-h-screen pb-16">
+    <main className="bg-taskify-background text-taskify-text pb-20">
       <PolicyHero appName={appName} lastUpdated={lastUpdated} intro={intro} />
       <PolicyHighlights highlights={highlights} />
 
@@ -40,10 +40,6 @@ export default function PrivacyPolicyPage() {
           <PolicyContact appName={appName} contactEmail={contactEmail} />
         </div>
       </div>
-
-      <footer className="text-taskify-text-muted mt-16 text-center text-sm">
-        © {new Date().getFullYear()} {appName}. All rights reserved.
-      </footer>
     </main>
   );
 }

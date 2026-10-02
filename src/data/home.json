@@ -1,1 +1,163 @@
-{}
+{
+  "hero": {
+    "badge": "Built for teams that like getting things done",
+    "title": "Plan it. Assign it.",
+    "highlight": "Get it done.",
+    "description": "Taskify keeps your projects, teams and tasks in one calm place. Set priorities, follow every task from to-do to done, and keep everyone in sync from your phone or the web.",
+    "primaryCta": { "label": "Get the app", "href": "#download" },
+    "secondaryCta": { "label": "See features", "href": "#features" },
+    "preview": {
+      "greeting": "Good morning",
+      "summary": "You have 3 tasks due today",
+      "project": "Website Redesign",
+      "progress": 68,
+      "tasks": [
+        {
+          "title": "Finalize landing page copy",
+          "status": "In progress",
+          "priority": "High",
+          "tone": "warning",
+          "due": "Today"
+        },
+        {
+          "title": "Fix login OTP timeout",
+          "status": "Review",
+          "priority": "Critical",
+          "tone": "error",
+          "due": "Today"
+        },
+        {
+          "title": "Export icons for Android",
+          "status": "Completed",
+          "priority": "Low",
+          "tone": "info",
+          "due": "Yesterday"
+        }
+      ]
+    }
+  },
+  "stats": [
+    { "value": "6", "label": "Task stages, from To do to Completed" },
+    { "value": "4", "label": "Priority levels to focus on what matters" },
+    {
+      "value": "1 tap",
+      "label": "Biometric unlock with fingerprint or Face ID"
+    },
+    { "value": "0", "label": "Ads or trackers. Your data is not for sale" }
+  ],
+  "features": {
+    "eyebrow": "Features",
+    "title": "Everything your team needs, nothing it doesn't",
+    "description": "Simple enough for a personal to-do list, structured enough for a whole team.",
+    "items": [
+      {
+        "icon": "lucide:list-checks",
+        "title": "Smart tasks",
+        "description": "Create tasks with descriptions, due dates, priorities and a clear status so nothing slips through."
+      },
+      {
+        "icon": "lucide:folder-kanban",
+        "title": "Projects",
+        "description": "Group work into projects with deadlines, tags and members. Archive them when you're done."
+      },
+      {
+        "icon": "lucide:users-round",
+        "title": "Teams",
+        "description": "Bring people together under a team leader and share projects with everyone at once."
+      },
+      {
+        "icon": "lucide:user-round-check",
+        "title": "Assign and own",
+        "description": "Assign a task to the right person, reassign in a tap, and always know who owns what."
+      },
+      {
+        "icon": "lucide:messages-square",
+        "title": "Comments and files",
+        "description": "Discuss work right on the task and attach the files your team needs."
+      },
+      {
+        "icon": "lucide:bell-ring",
+        "title": "Activity and alerts",
+        "description": "A timeline of every change plus notifications when something needs your attention."
+      }
+    ]
+  },
+  "workflow": {
+    "eyebrow": "Workflow",
+    "title": "Follow every task from start to finish",
+    "description": "Taskify's built-in stages match how real teams work, so progress is visible at a glance.",
+    "stages": [
+      { "label": "To do", "icon": "lucide:circle-dashed" },
+      { "label": "In progress", "icon": "lucide:loader" },
+      { "label": "Review", "icon": "lucide:eye" },
+      { "label": "Testing", "icon": "lucide:flask-conical" },
+      { "label": "Completed", "icon": "lucide:circle-check-big" }
+    ],
+    "priorities": [
+      { "label": "Low", "tone": "info" },
+      { "label": "Medium", "tone": "success" },
+      { "label": "High", "tone": "warning" },
+      { "label": "Critical", "tone": "error" }
+    ]
+  },
+  "security": {
+    "eyebrow": "Privacy and security",
+    "title": "Your work stays yours",
+    "description": "Taskify was built with privacy in mind from day one. Read the full details in our privacy policy.",
+    "linkLabel": "Read the privacy policy",
+    "items": [
+      {
+        "icon": "lucide:fingerprint",
+        "title": "Biometric app lock",
+        "description": "Unlock with fingerprint or Face ID. Biometric data never leaves your phone."
+      },
+      {
+        "icon": "lucide:key-round",
+        "title": "Secure sign-in",
+        "description": "Email verification with one-time codes and passwords stored as one-way hashes."
+      },
+      {
+        "icon": "lucide:moon-star",
+        "title": "Light and dark mode",
+        "description": "Easy on the eyes at any hour. Taskify follows your preference."
+      }
+    ]
+  },
+  "steps": {
+    "eyebrow": "How it works",
+    "title": "Up and running in three steps",
+    "items": [
+      {
+        "title": "Create your account",
+        "description": "Sign up with your email and verify it with a one-time code."
+      },
+      {
+        "title": "Set up a project",
+        "description": "Add a project, invite your team and break the work into tasks."
+      },
+      {
+        "title": "Track and finish",
+        "description": "Move tasks through each stage and watch the project come together."
+      }
+    ]
+  },
+  "download": {
+    "title": "Ready to get organised?",
+    "description": "Taskify is available on Android and iOS. Download it and create your first project in under a minute.",
+    "stores": [
+      {
+        "icon": "logos:google-play-icon",
+        "caption": "Get it on",
+        "label": "Google Play",
+        "href": ""
+      },
+      {
+        "icon": "logos:apple-app-store",
+        "caption": "Download on the",
+        "label": "App Store",
+        "href": ""
+      }
+    ],
+    "comingSoonLabel": "Coming soon"
+  }
+}
