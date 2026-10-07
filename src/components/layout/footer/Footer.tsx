@@ -87,13 +87,14 @@ export default function Footer() {
         <div className="text-taskify-text-muted mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm sm:flex-row">
           <p>
             &copy; {new Date().getFullYear()} {site.legalName}. Built by{" "}
-            <Link
-              href="/about#creator"
-              rel="author"
+            <a
+              href={site.creator.url}
+              target="_blank"
+              rel="author noopener"
               className="text-taskify-text-secondary hover:text-taskify-link font-medium transition-colors"
             >
               {site.creator.name}
-            </Link>
+            </a>
             .
           </p>
           <a

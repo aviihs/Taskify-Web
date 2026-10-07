@@ -22,7 +22,7 @@ function buildKeyFacts() {
   return [
     `- Name: ${site.name}`,
     `- What it is: a task and project management app for teams`,
-    `- Created by: ${site.creator.name} (${site.creator.role}), ${site.creator.url}`,
+    `- Created by: ${site.creator.name} (${site.creator.role}), website ${site.creator.url}, GitHub ${site.creator.github}`,
     `- Platforms: Android and iOS, plus this website`,
     `- Contact: ${site.contactEmail}`,
     `- Privacy: no ads, no third-party trackers, data is never sold`,

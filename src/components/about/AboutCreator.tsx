@@ -31,9 +31,18 @@ export default function AboutCreator({ creator }: AboutCreatorProps) {
           />
 
           <figcaption className="absolute inset-x-0 bottom-0 p-7 text-white sm:p-9">
-            <p className="text-3xl font-semibold tracking-[-0.03em]">
+            <a
+              href={site.creator.url}
+              target="_blank"
+              rel="author noopener"
+              className="group/name inline-flex items-center gap-2 text-3xl font-semibold tracking-[-0.03em] transition-opacity hover:opacity-85"
+            >
               {site.creator.name}
-            </p>
+              <Icon
+                name="lucide:arrow-up-right"
+                className="text-xl opacity-60 transition group-hover/name:translate-x-0.5 group-hover/name:-translate-y-0.5 group-hover/name:opacity-100 lg:text-xl"
+              />
+            </a>
             <p className="mt-1 text-white/70">{site.creator.role}</p>
 
             <Stagger as="ul" className="mt-6 flex flex-wrap gap-2">
@@ -71,7 +80,7 @@ export default function AboutCreator({ creator }: AboutCreatorProps) {
             </p>
           ))}
           <a
-            href={site.creator.url}
+            href={site.creator.github}
             target="_blank"
             rel="noopener noreferrer me"
             className="group border-taskify-border/80 text-taskify-text hover:border-taskify-accent interactive-button mt-3 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 font-semibold"

@@ -10,8 +10,9 @@
     "name": "Shiva Bhusal",
     "role": "Creator of Taskify",
     "image": "/shiva.avif",
-    "url": "https://github.com/aviihs",
-    "sameAs": ["https://github.com/aviihs"]
+    "url": "https://bhusalshiva.com.np",
+    "github": "https://github.com/aviihs",
+    "sameAs": ["https://bhusalshiva.com.np", "https://github.com/aviihs"]
   },
   "keywords": [
     "Taskify",
