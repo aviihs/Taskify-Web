@@ -4,8 +4,14 @@
     "title": "Plan it. Assign it.",
     "highlight": "Get it done.",
     "description": "Taskify keeps your projects, teams and tasks in one calm place. Set priorities, follow every task from to-do to done, and keep everyone in sync from your phone or the web.",
-    "primaryCta": { "label": "Get the app", "href": "#download" },
-    "secondaryCta": { "label": "See features", "href": "#features" },
+    "primaryCta": {
+      "label": "Get the app",
+      "href": "#download"
+    },
+    "secondaryCta": {
+      "label": "See features",
+      "href": "#features"
+    },
     "preview": {
       "greeting": "Good morning",
       "summary": "You have 3 tasks due today",
@@ -37,13 +43,22 @@
     }
   },
   "stats": [
-    { "value": "6", "label": "Task stages, from To do to Completed" },
-    { "value": "4", "label": "Priority levels to focus on what matters" },
+    {
+      "value": "6",
+      "label": "Task stages, from To do to Completed"
+    },
+    {
+      "value": "4",
+      "label": "Priority levels to focus on what matters"
+    },
     {
       "value": "1 tap",
       "label": "Biometric unlock with fingerprint or Face ID"
     },
-    { "value": "0", "label": "Ads or trackers. Your data is not for sale" }
+    {
+      "value": "0",
+      "label": "Ads or trackers. Your data is not for sale"
+    }
   ],
   "features": {
     "eyebrow": "Features",
@@ -87,18 +102,74 @@
     "title": "Follow every task from start to finish",
     "description": "Taskify's built-in stages match how real teams work, so progress is visible at a glance.",
     "stages": [
-      { "label": "To do", "icon": "lucide:circle-dashed" },
-      { "label": "In progress", "icon": "lucide:loader" },
-      { "label": "Review", "icon": "lucide:eye" },
-      { "label": "Testing", "icon": "lucide:flask-conical" },
-      { "label": "Completed", "icon": "lucide:circle-check-big" }
+      {
+        "label": "To do",
+        "icon": "lucide:circle-dashed",
+        "description": "Captured with a clear title, owner and due date, waiting in the backlog."
+      },
+      {
+        "label": "In progress",
+        "icon": "lucide:loader",
+        "description": "Someone has picked it up. Teammates can see exactly who is on it."
+      },
+      {
+        "label": "Review",
+        "icon": "lucide:eye",
+        "description": "Work is done and ready for a second pair of eyes before it moves on."
+      },
+      {
+        "label": "Testing",
+        "icon": "lucide:flask-conical",
+        "description": "Checked against the details so nothing breaks once it ships."
+      },
+      {
+        "label": "Completed",
+        "icon": "lucide:circle-check-big",
+        "description": "Done and logged in the activity history, and the project moves forward."
+      }
     ],
     "priorities": [
-      { "label": "Low", "tone": "info" },
-      { "label": "Medium", "tone": "success" },
-      { "label": "High", "tone": "warning" },
-      { "label": "Critical", "tone": "error" }
-    ]
+      {
+        "label": "Low",
+        "tone": "info"
+      },
+      {
+        "label": "Medium",
+        "tone": "success"
+      },
+      {
+        "label": "High",
+        "tone": "warning"
+      },
+      {
+        "label": "Critical",
+        "tone": "error"
+      }
+    ],
+    "priorityCaption": "Prioritise with four levels",
+    "demoTask": {
+      "title": "Launch the new onboarding flow",
+      "project": "Mobile App v2",
+      "priority": "High",
+      "priorityTone": "warning",
+      "due": "Due Friday",
+      "assignees": [
+        {
+          "name": "Aarav",
+          "initials": "AR"
+        },
+        {
+          "name": "Sita",
+          "initials": "SK"
+        },
+        {
+          "name": "Maya",
+          "initials": "MG"
+        }
+      ],
+      "activityLabel": "Activity",
+      "activityTimes": ["Just now", "2h ago", "Yesterday", "2d ago", "3d ago"]
+    }
   },
   "security": {
     "eyebrow": "Privacy and security",

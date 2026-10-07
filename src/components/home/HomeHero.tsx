@@ -81,17 +81,15 @@ export default function HomeHero({ hero }: HomeHeroProps) {
         </div>
 
         <Reveal isImmediate delay={0.2} offsetY={40} className="relative">
-          <Float distance={12} duration={7}>
-            <AppPreview preview={hero.preview} />
-          </Float>
+          <AppPreview preview={hero.preview} />
 
           <Float
-            distance={8}
-            duration={5}
-            delay={1}
+            distance={14}
+            drift={6}
+            duration={6}
             className="absolute top-44 -left-2 hidden sm:block lg:-left-16"
           >
-            <div className="bg-taskify-surface/95 text-taskify-text flex items-center gap-3 rounded-2xl py-2.5 pr-4 pl-2.5 shadow-2xl ring-1 shadow-black/25 ring-black/5 backdrop-blur">
+            <div className="bg-taskify-surface text-taskify-text flex items-center gap-3 rounded-2xl py-2.5 pr-4 pl-2.5 shadow-[0_20px_50px_-12px_rgb(0_0_0/0.35)] ring-1 ring-black/5">
               <span className="flex size-9 items-center justify-center rounded-xl bg-green-500/15 text-green-600">
                 <Icon name="lucide:check-check" className="cursor-default" />
               </span>
@@ -103,12 +101,13 @@ export default function HomeHero({ hero }: HomeHeroProps) {
           </Float>
 
           <Float
-            distance={10}
-            duration={6}
-            delay={0.5}
+            distance={12}
+            drift={-6}
+            duration={7}
+            delay={1.2}
             className="absolute -right-2 bottom-20 hidden sm:block lg:-right-8"
           >
-            <div className="bg-taskify-surface/95 text-taskify-text flex items-center gap-3 rounded-2xl py-2.5 pr-4 pl-2.5 shadow-2xl ring-1 shadow-black/25 ring-black/5 backdrop-blur">
+            <div className="bg-taskify-surface text-taskify-text flex items-center gap-3 rounded-2xl py-2.5 pr-4 pl-2.5 shadow-[0_20px_50px_-12px_rgb(0_0_0/0.35)] ring-1 ring-black/5">
               <span className="bg-taskify-surface-variant text-taskify-link flex size-9 items-center justify-center rounded-xl">
                 <Icon name="lucide:users-round" className="cursor-default" />
               </span>

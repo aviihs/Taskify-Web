@@ -20,12 +20,12 @@ export function Reveal({
   offsetY = 24,
   isImmediate = false,
 }: RevealProps) {
-  const visibleState = { opacity: 1, y: 0, filter: "blur(0px)" };
+  const visibleState = { opacity: 1, y: 0 };
 
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: offsetY, filter: "blur(6px)" }}
+      initial={{ opacity: 0, y: offsetY }}
       animate={isImmediate ? visibleState : undefined}
       whileInView={isImmediate ? undefined : visibleState}
       viewport={{ once: true, margin: "-80px" }}
@@ -112,22 +112,30 @@ interface FloatProps {
   children: React.ReactNode;
   className?: string;
   distance?: number;
+  drift?: number;
   duration?: number;
   delay?: number;
 }
 
-// Gentle, endless vertical bob for decorative cards.
+// Gentle, endless bob for decorative cards. Animates transform only and
+// promotes the element to its own layer so it stays smooth.
 export function Float({
   children,
   className,
   distance = 10,
+  drift = 0,
   duration = 6,
   delay = 0,
 }: FloatProps) {
   return (
     <motion.div
       className={className}
-      animate={{ y: [0, -distance, 0] }}
+      style={{ willChange: "transform" }}
+      animate={{
+        y: [0, -distance, 0],
+        x: [0, drift, 0],
+        rotate: [0, drift > 0 ? 1.5 : -1.5, 0],
+      }}
       transition={{ duration, delay, repeat: Infinity, ease: "easeInOut" }}
     >
       {children}

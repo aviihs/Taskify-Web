@@ -44,8 +44,19 @@ export interface HomeContent {
   stats: { value: string; label: string }[];
   features: SectionIntro & { items: IconCard[] };
   workflow: SectionIntro & {
-    stages: { label: string; icon: string }[];
+    stages: { label: string; icon: string; description: string }[];
     priorities: { label: string; tone: Tone }[];
+    priorityCaption: string;
+    demoTask: {
+      title: string;
+      project: string;
+      priority: string;
+      priorityTone: Tone;
+      due: string;
+      assignees: { name: string; initials: string }[];
+      activityLabel: string;
+      activityTimes: string[];
+    };
   };
   security: SectionIntro & { linkLabel: string; items: IconCard[] };
   steps: SectionIntro & { items: { title: string; description: string }[] };

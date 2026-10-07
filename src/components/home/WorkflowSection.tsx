@@ -1,102 +1,132 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+import { motion, useInView, useReducedMotion } from "motion/react";
+
 import Icon from "@/components/common/icon";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
-import SectionIntro from "@/components/reusable/SectionIntro";
-import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
 import type { HomeContent } from "@/types/Home";
 
-import { TONE_BADGE_CLASSES, TONE_DOT_CLASSES } from "./tone-classes";
+import PriorityLevels from "./workflow/PriorityLevels";
+import WorkflowActivity from "./workflow/WorkflowActivity";
+import WorkflowStepper from "./workflow/WorkflowStepper";
+import WorkflowTaskCard from "./workflow/WorkflowTaskCard";
+
+const AUTOPLAY_INTERVAL_MS = 2800;
 
 interface WorkflowSectionProps {
   workflow: HomeContent["workflow"];
 }
 
 export default function WorkflowSection({ workflow }: WorkflowSectionProps) {
-  const lastStageIndex = workflow.stages.length - 1;
+  const panelRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(panelRef, { amount: 0.35 });
+  const shouldReduceMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const stageCount = workflow.stages.length;
+  const isAutoplaying = isInView && !isPaused && !shouldReduceMotion;
+  const activeStage = workflow.stages[activeIndex];
+  const isComplete = activeIndex === stageCount - 1;
+
+  useEffect(() => {
+    if (!isAutoplaying) return;
+    const timer = window.setInterval(() => {
+      setActiveIndex(index => (index + 1) % stageCount);
+    }, AUTOPLAY_INTERVAL_MS);
+    return () => window.clearInterval(timer);
+  }, [isAutoplaying, stageCount]);
+
+  const handleSelectStage = (index: number) => {
+    setActiveIndex(index);
+    setIsPaused(true);
+  };
 
   return (
     <section id="workflow" className="mx-auto max-w-6xl scroll-mt-24 px-4">
-      <div className="bg-taskify-surface border-taskify-border/70 relative isolate overflow-hidden rounded-[2rem] border px-6 py-16 sm:px-12 sm:py-20">
+      <Reveal>
         <div
-          aria-hidden
-          className="bg-taskify-accent/15 absolute -top-40 left-1/2 -z-10 size-[30rem] -translate-x-1/2 rounded-full blur-3xl"
-        />
-        <SectionIntro {...workflow} />
-
-        <Stagger as="ol" className="mt-14 grid gap-3 sm:grid-cols-5">
-          {workflow.stages.map((stage, index) => {
-            const isFinalStage = index === lastStageIndex;
-            return (
-              <StaggerItem as="li" key={stage.label} className="relative">
-                <div
-                  className={cn(
-                    "flex items-center gap-3 rounded-2xl border p-4 transition-transform duration-500 hover:-translate-y-1 sm:flex-col sm:py-6 sm:text-center",
-                    isFinalStage
-                      ? "from-taskify-primary to-taskify-secondary border-transparent bg-linear-to-br text-white shadow-[0_20px_40px_-20px_rgb(88_92_131/0.7)]"
-                      : "border-taskify-border/70 bg-taskify-background text-taskify-text"
-                  )}
-                >
-                  <span
-                    className={cn(
-                      "flex size-10 shrink-0 items-center justify-center rounded-full",
-                      isFinalStage
-                        ? "bg-white/20"
-                        : "bg-taskify-surface text-taskify-link ring-taskify-border/70 ring-1"
-                    )}
-                  >
-                    <Icon
-                      name={stage.icon}
-                      className="cursor-default text-lg lg:text-lg"
-                    />
-                  </span>
-                  <span className="text-sm font-semibold">{stage.label}</span>
-                  <span
-                    className={cn(
-                      "ml-auto text-xs font-medium tabular-nums sm:ml-0",
-                      isFinalStage ? "text-white/70" : "text-taskify-text-muted"
-                    )}
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                {!isFinalStage && (
-                  <Icon
-                    name="lucide:chevron-right"
-                    className="text-taskify-text-muted absolute top-1/2 -right-3 z-10 hidden -translate-y-1/2 cursor-default sm:flex"
-                  />
-                )}
-              </StaggerItem>
-            );
-          })}
-        </Stagger>
-
-        <Reveal
-          delay={0.2}
-          className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+          ref={panelRef}
+          className="relative isolate overflow-hidden rounded-[2rem] bg-[#141726] px-5 py-16 text-white sm:px-12 sm:py-20"
         >
-          <p className="text-taskify-text-secondary text-sm font-medium">
-            Prioritise with four levels
-          </p>
-          <ul className="flex flex-wrap justify-center gap-2">
-            {workflow.priorities.map(priority => (
-              <li
-                key={priority.label}
-                className={cn(
-                  "inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold",
-                  TONE_BADGE_CLASSES[priority.tone]
-                )}
-              >
-                <span
-                  className={cn(
-                    "size-2 rounded-full",
-                    TONE_DOT_CLASSES[priority.tone]
-                  )}
-                />
-                {priority.label}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </div>
+          <div
+            aria-hidden
+            className="bg-grid-white mask-fade-b absolute inset-0 -z-10 opacity-60"
+          />
+          <div
+            aria-hidden
+            className="bg-taskify-secondary/30 absolute -top-48 left-1/2 -z-10 size-[34rem] -translate-x-1/2 rounded-full blur-3xl"
+          />
+          <motion.div
+            aria-hidden
+            className="absolute -bottom-40 left-[60%] -z-10 size-96 rounded-full bg-green-400/10 blur-3xl"
+            initial={false}
+            animate={{ opacity: isComplete ? 1 : 0 }}
+            transition={{ duration: 0.8 }}
+          />
+
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-taskify-accent inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] uppercase">
+              <span aria-hidden className="bg-taskify-accent h-px w-6" />
+              {workflow.eyebrow}
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-balance sm:text-5xl">
+              {workflow.title}
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-pretty text-white/60">
+              {workflow.description}
+            </p>
+          </div>
+
+          <div className="mt-14">
+            <WorkflowStepper
+              stages={workflow.stages}
+              activeIndex={activeIndex}
+              onSelect={handleSelectStage}
+            />
+          </div>
+
+          <div className="mt-6 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setIsPaused(!isPaused)}
+              aria-label={
+                isPaused ? "Play workflow demo" : "Pause workflow demo"
+              }
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3.5 py-1.5 text-xs font-medium text-white/60 transition-colors hover:border-white/25 hover:text-white"
+            >
+              <Icon
+                name={isPaused ? "lucide:play" : "lucide:pause"}
+                className="text-xs lg:text-xs"
+              />
+              {isPaused ? "Play demo" : "Auto-playing"}
+            </button>
+          </div>
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
+            <WorkflowTaskCard
+              task={workflow.demoTask}
+              stage={activeStage}
+              progress={activeIndex / (stageCount - 1)}
+              isComplete={isComplete}
+            />
+            <WorkflowActivity
+              task={workflow.demoTask}
+              stages={workflow.stages}
+              activeIndex={activeIndex}
+            />
+          </div>
+
+          <div className="mt-12">
+            <PriorityLevels
+              caption={workflow.priorityCaption}
+              priorities={workflow.priorities}
+            />
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }
