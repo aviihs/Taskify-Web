@@ -146,30 +146,7 @@
         "tone": "error"
       }
     ],
-    "priorityCaption": "Prioritise with four levels",
-    "demoTask": {
-      "title": "Launch the new onboarding flow",
-      "project": "Mobile App v2",
-      "priority": "High",
-      "priorityTone": "warning",
-      "due": "Due Friday",
-      "assignees": [
-        {
-          "name": "Aarav",
-          "initials": "AR"
-        },
-        {
-          "name": "Sita",
-          "initials": "SK"
-        },
-        {
-          "name": "Maya",
-          "initials": "MG"
-        }
-      ],
-      "activityLabel": "Activity",
-      "activityTimes": ["Just now", "2h ago", "Yesterday", "2d ago", "3d ago"]
-    }
+    "priorityCaption": "Prioritise with four levels"
   },
   "security": {
     "eyebrow": "Privacy and security",

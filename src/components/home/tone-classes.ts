@@ -15,11 +15,3 @@ export const TONE_DOT_CLASSES: Record<Tone, string> = {
   warning: "bg-amber-500",
   error: "bg-red-500",
 };
-
-// Badge colours for use on the dark workflow panel.
-export const TONE_BADGE_ON_DARK_CLASSES: Record<Tone, string> = {
-  info: "bg-blue-400/15 text-blue-300 ring-blue-400/25",
-  success: "bg-green-400/15 text-green-300 ring-green-400/25",
-  warning: "bg-amber-400/15 text-amber-300 ring-amber-400/25",
-  error: "bg-red-400/15 text-red-300 ring-red-400/25",
-};

@@ -1,132 +1,92 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-
-import { motion, useInView, useReducedMotion } from "motion/react";
-
 import Icon from "@/components/common/icon";
-import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import SectionIntro from "@/components/reusable/SectionIntro";
+import { cn } from "@/lib/utils";
 import type { HomeContent } from "@/types/Home";
 
 import PriorityLevels from "./workflow/PriorityLevels";
-import WorkflowActivity from "./workflow/WorkflowActivity";
-import WorkflowStepper from "./workflow/WorkflowStepper";
-import WorkflowTaskCard from "./workflow/WorkflowTaskCard";
-
-const AUTOPLAY_INTERVAL_MS = 2800;
+import WorkflowLine from "./workflow/WorkflowLine";
 
 interface WorkflowSectionProps {
   workflow: HomeContent["workflow"];
 }
 
 export default function WorkflowSection({ workflow }: WorkflowSectionProps) {
-  const panelRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(panelRef, { amount: 0.35 });
-  const shouldReduceMotion = useReducedMotion();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const stageCount = workflow.stages.length;
-  const isAutoplaying = isInView && !isPaused && !shouldReduceMotion;
-  const activeStage = workflow.stages[activeIndex];
-  const isComplete = activeIndex === stageCount - 1;
-
-  useEffect(() => {
-    if (!isAutoplaying) return;
-    const timer = window.setInterval(() => {
-      setActiveIndex(index => (index + 1) % stageCount);
-    }, AUTOPLAY_INTERVAL_MS);
-    return () => window.clearInterval(timer);
-  }, [isAutoplaying, stageCount]);
-
-  const handleSelectStage = (index: number) => {
-    setActiveIndex(index);
-    setIsPaused(true);
-  };
+  const lastStageIndex = workflow.stages.length - 1;
+  // Node centres sit half a column in from each edge on the desktop row.
+  const edgeInset = `${50 / workflow.stages.length}%`;
 
   return (
     <section id="workflow" className="mx-auto max-w-6xl scroll-mt-24 px-4">
-      <Reveal>
-        <div
-          ref={panelRef}
-          className="relative isolate overflow-hidden rounded-[2rem] bg-[#141726] px-5 py-16 text-white sm:px-12 sm:py-20"
-        >
-          <div
-            aria-hidden
-            className="bg-grid-white mask-fade-b absolute inset-0 -z-10 opacity-60"
-          />
-          <div
-            aria-hidden
-            className="bg-taskify-secondary/30 absolute -top-48 left-1/2 -z-10 size-[34rem] -translate-x-1/2 rounded-full blur-3xl"
-          />
-          <motion.div
-            aria-hidden
-            className="absolute -bottom-40 left-[60%] -z-10 size-96 rounded-full bg-green-400/10 blur-3xl"
-            initial={false}
-            animate={{ opacity: isComplete ? 1 : 0 }}
-            transition={{ duration: 0.8 }}
+      <div className="bg-taskify-surface border-taskify-border/70 rounded-[2rem] border px-6 py-16 sm:px-12 sm:py-20">
+        <SectionIntro
+          eyebrow={workflow.eyebrow}
+          title={workflow.title}
+          description={workflow.description}
+        />
+
+        <div className="relative mt-16">
+          <WorkflowLine
+            className="top-6 hidden lg:block"
+            style={{ left: edgeInset, right: edgeInset }}
           />
 
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-taskify-accent inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] uppercase">
-              <span aria-hidden className="bg-taskify-accent h-px w-6" />
-              {workflow.eyebrow}
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-balance sm:text-5xl">
-              {workflow.title}
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-pretty text-white/60">
-              {workflow.description}
-            </p>
-          </div>
-
-          <div className="mt-14">
-            <WorkflowStepper
-              stages={workflow.stages}
-              activeIndex={activeIndex}
-              onSelect={handleSelectStage}
-            />
-          </div>
-
-          <div className="mt-6 flex justify-center">
-            <button
-              type="button"
-              onClick={() => setIsPaused(!isPaused)}
-              aria-label={
-                isPaused ? "Play workflow demo" : "Pause workflow demo"
-              }
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3.5 py-1.5 text-xs font-medium text-white/60 transition-colors hover:border-white/25 hover:text-white"
-            >
-              <Icon
-                name={isPaused ? "lucide:play" : "lucide:pause"}
-                className="text-xs lg:text-xs"
-              />
-              {isPaused ? "Play demo" : "Auto-playing"}
-            </button>
-          </div>
-
-          <div className="mt-10 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
-            <WorkflowTaskCard
-              task={workflow.demoTask}
-              stage={activeStage}
-              progress={activeIndex / (stageCount - 1)}
-              isComplete={isComplete}
-            />
-            <WorkflowActivity
-              task={workflow.demoTask}
-              stages={workflow.stages}
-              activeIndex={activeIndex}
-            />
-          </div>
-
-          <div className="mt-12">
-            <PriorityLevels
-              caption={workflow.priorityCaption}
-              priorities={workflow.priorities}
-            />
-          </div>
+          {/* One row on desktop, a vertical timeline on smaller screens. */}
+          <Stagger
+            as="ol"
+            className="relative grid gap-8 lg:grid-cols-5 lg:gap-4"
+          >
+            {workflow.stages.map((stage, index) => {
+              const isFinalStage = index === lastStageIndex;
+              return (
+                <StaggerItem
+                  as="li"
+                  key={stage.label}
+                  className="group relative flex gap-5 lg:flex-col lg:items-center lg:gap-0 lg:text-center"
+                >
+                  {!isFinalStage && (
+                    <span
+                      aria-hidden
+                      className="bg-taskify-border absolute top-12 -bottom-8 left-6 w-px lg:hidden"
+                    />
+                  )}
+                  <span
+                    className={cn(
+                      "relative flex size-12 shrink-0 items-center justify-center rounded-full border transition-[transform,border-color] duration-300 group-hover:-translate-y-0.5",
+                      isFinalStage
+                        ? "from-taskify-primary to-taskify-secondary border-transparent bg-linear-to-br text-white shadow-[0_8px_24px_-8px_rgb(88_92_131/0.6)]"
+                        : "border-taskify-border bg-taskify-surface text-taskify-link group-hover:border-taskify-accent"
+                    )}
+                  >
+                    <Icon
+                      name={stage.icon}
+                      className="cursor-default text-lg lg:text-lg"
+                    />
+                  </span>
+                  <div className="pt-1 lg:mt-5 lg:px-2 lg:pt-0">
+                    <p className="text-taskify-text-muted text-xs font-medium tabular-nums">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="text-taskify-text mt-1 font-semibold tracking-tight">
+                      {stage.label}
+                    </h3>
+                    <p className="text-taskify-text-secondary mt-2 text-sm leading-relaxed">
+                      {stage.description}
+                    </p>
+                  </div>
+                </StaggerItem>
+              );
+            })}
+          </Stagger>
         </div>
-      </Reveal>
+
+        <div className="mt-16">
+          <PriorityLevels
+            caption={workflow.priorityCaption}
+            priorities={workflow.priorities}
+          />
+        </div>
+      </div>
     </section>
   );
 }
