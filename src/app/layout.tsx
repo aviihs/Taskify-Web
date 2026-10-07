@@ -31,7 +31,11 @@ export const metadata: Metadata = {
   publisher: site.legalName,
   keywords: site.keywords,
   category: "productivity",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    // Points AI crawlers at the plain-text site summary.
+    types: { "text/plain": "/llms.txt" },
+  },
   formatDetection: { email: false, telephone: false, address: false },
   robots: {
     index: true,
@@ -58,9 +62,6 @@ export const metadata: Metadata = {
     description: site.description,
     creator: site.creator.name,
   },
-  other: {
-    "llms-txt": "/llms.txt",
-  },
 };
 
 export const viewport: Viewport = {
@@ -86,14 +87,6 @@ export default function RootLayout({
         inter.variable
       )}
     >
-      <head>
-        <link
-          rel="alternate"
-          type="text/plain"
-          href="/llms.txt"
-          title="LLM-friendly summary"
-        />
-      </head>
       <body className="bg-taskify-background flex min-h-full flex-col">
         <JsonLd data={buildSiteSchema()} />
         <LocaleProvider>
