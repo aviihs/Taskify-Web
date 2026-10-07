@@ -19,6 +19,7 @@ export async function POST(request: Request) {
     body !== null &&
     Boolean((body as Record<string, unknown>)[HONEYPOT_FIELD]);
   if (isBot) {
+    console.warn("Contact form honeypot triggered; message not forwarded");
     return Response.json({ ok: true });
   }
 

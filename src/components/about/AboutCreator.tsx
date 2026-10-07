@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import Icon from "@/components/common/icon";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import SectionIntro from "@/components/reusable/SectionIntro";
@@ -9,51 +11,48 @@ interface AboutCreatorProps {
 }
 
 export default function AboutCreator({ creator }: AboutCreatorProps) {
-  const initials = site.creator.name
-    .split(" ")
-    .map(part => part[0])
-    .join("");
-
   return (
     <section
       id="creator"
       className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-12 px-4 lg:grid-cols-[1fr_1.2fr] lg:gap-20"
     >
-      <Reveal className="relative">
-        <div className="from-taskify-primary-dark via-taskify-primary to-taskify-secondary relative isolate overflow-hidden rounded-[2rem] bg-linear-to-br p-8 text-white sm:p-10">
-          <div
-            aria-hidden
-            className="bg-grid-white mask-fade-b absolute inset-0 -z-10"
+      <Reveal className="relative mx-auto w-full max-w-md lg:max-w-none">
+        <figure className="group relative aspect-3/4 overflow-hidden rounded-[2rem] bg-[#141726] shadow-[0_30px_80px_-40px_rgb(31_36_53/0.6)]">
+          <Image
+            src={site.creator.image}
+            alt={`${site.creator.name}, ${site.creator.role}`}
+            fill
+            sizes="(min-width: 1024px) 480px, (min-width: 640px) 448px, 100vw"
+            className="origin-[50%_28%] scale-125 object-cover object-[50%_28%] transition-[scale] group-hover:scale-[1.29]"
           />
           <div
             aria-hidden
-            className="bg-taskify-accent/50 absolute -right-20 -bottom-20 -z-10 size-72 rounded-full blur-3xl"
+            className="absolute inset-0 bg-linear-to-t from-[#141726] from-5% via-[#141726]/50 via-30% to-transparent to-55%"
           />
 
-          <span className="flex size-20 items-center justify-center rounded-3xl bg-white/15 text-2xl font-semibold tracking-tight ring-1 ring-white/25 backdrop-blur">
-            {initials}
-          </span>
-          <p className="mt-8 text-3xl font-semibold tracking-[-0.03em]">
-            {site.creator.name}
-          </p>
-          <p className="mt-1 text-white/70">{site.creator.role}</p>
+          <figcaption className="absolute inset-x-0 bottom-0 p-7 text-white sm:p-9">
+            <p className="text-3xl font-semibold tracking-[-0.03em]">
+              {site.creator.name}
+            </p>
+            <p className="mt-1 text-white/70">{site.creator.role}</p>
 
-          <Stagger as="ul" className="mt-8 flex flex-wrap gap-2">
-            {creator.highlights.map(highlight => (
-              <StaggerItem
-                as="li"
-                key={highlight.label}
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm ring-1 ring-white/20"
-              >
-                <Icon
-                  name={highlight.icon}
-                  className="cursor-default text-sm lg:text-sm"
-                />
-                {highlight.label}
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
+            <Stagger as="ul" className="mt-6 flex flex-wrap gap-2">
+              {creator.highlights.map(highlight => (
+                <StaggerItem
+                  as="li"
+                  key={highlight.label}
+                  className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm ring-1 ring-white/20 backdrop-blur"
+                >
+                  <Icon
+                    name={highlight.icon}
+                    className="cursor-default text-sm lg:text-sm"
+                  />
+                  {highlight.label}
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </figcaption>
+        </figure>
       </Reveal>
 
       <div>

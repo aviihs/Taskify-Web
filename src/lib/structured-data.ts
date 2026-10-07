@@ -15,6 +15,7 @@ export function buildCreatorSchema() {
     "@id": CREATOR_ID,
     name: site.creator.name,
     jobTitle: site.creator.role,
+    image: absoluteUrl(site.creator.image),
     url: absoluteUrl("/about"),
     sameAs: site.creator.sameAs,
     worksFor: { "@id": ORGANIZATION_ID },
