@@ -194,7 +194,7 @@ export default function MobileMenu({ pathname }: MobileMenuProps) {
                     <Link
                       href="/#download"
                       onClick={handleClose}
-                      className="bg-taskify-text flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-semibold text-white"
+                      className="bg-taskify-text hover:bg-taskify-primary-dark interactive-button flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-semibold text-white"
                     >
                       <Icon name="lucide:download" />
                       Get the app

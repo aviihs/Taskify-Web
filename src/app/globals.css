@@ -60,6 +60,10 @@
   --color-taskify-text-secondary: var(--taskify-text-secondary);
   --color-taskify-text-muted: var(--taskify-text-muted);
   --color-taskify-border: var(--taskify-border);
+
+  /* One motion language for every hover and transition on the site. */
+  --default-transition-duration: 300ms;
+  --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {
@@ -164,6 +168,41 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+/* Uses the standalone translate/scale properties so it never fights the
+   inline transform that Motion writes on animated elements. */
+/* Cards that respond to hover: lift, accent border, soft brand shadow. */
+@utility interactive-card {
+  transition-property: translate, border-color, box-shadow, background-color;
+  transition-duration: var(--default-transition-duration);
+  transition-timing-function: var(--default-transition-timing-function);
+
+  @media (hover: hover) {
+    &:hover {
+      translate: 0 -4px;
+      border-color: color-mix(in oklab, var(--taskify-accent) 55%, transparent);
+      box-shadow: 0 24px 60px -30px rgb(88 92 131 / 0.45);
+    }
+  }
+}
+
+/* Primary and secondary buttons: small lift on hover, settle on press. */
+@utility interactive-button {
+  transition-property:
+    translate, scale, background-color, color, border-color, box-shadow;
+  transition-duration: var(--default-transition-duration);
+  transition-timing-function: var(--default-transition-timing-function);
+
+  @media (hover: hover) {
+    &:hover {
+      translate: 0 -2px;
+    }
+  }
+  &:active {
+    translate: 0 0;
+    scale: 0.98;
   }
 }
 

@@ -44,7 +44,7 @@ export default function ContactPage() {
       >
         <a
           href={`mailto:${site.contactEmail}`}
-          className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium ring-1 ring-white/20 backdrop-blur transition-colors hover:bg-white/20"
+          className="interactive-button inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium ring-1 ring-white/20 backdrop-blur hover:bg-white/20"
         >
           <span className="relative flex size-2">
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />

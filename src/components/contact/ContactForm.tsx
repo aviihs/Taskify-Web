@@ -312,12 +312,10 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
               )}
             </AnimatePresence>
 
-            <motion.button
+            <button
               type="submit"
               disabled={isSubmitting}
-              whileHover={isSubmitting ? undefined : { y: -2 }}
-              whileTap={isSubmitting ? undefined : { scale: 0.98 }}
-              className="group bg-taskify-text hover:bg-taskify-primary-dark mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold text-white shadow-lg shadow-black/10 transition-colors disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+              className="group bg-taskify-text hover:bg-taskify-primary-dark interactive-button mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold text-white shadow-lg shadow-black/10 disabled:pointer-events-none disabled:opacity-70 sm:w-auto"
             >
               {isSubmitting ? form.submittingLabel : form.submitLabel}
               <Icon
@@ -329,7 +327,7 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
                   isSubmitting ? "animate-spin" : "group-hover:translate-x-0.5"
                 )}
               />
-            </motion.button>
+            </button>
           </motion.form>
         )}
       </AnimatePresence>

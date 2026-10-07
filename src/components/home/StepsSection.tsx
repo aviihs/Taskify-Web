@@ -16,7 +16,7 @@ export default function StepsSection({ steps }: StepsSectionProps) {
           <StaggerItem
             as="li"
             key={step.title}
-            className="group bg-taskify-surface border-taskify-border/70 relative overflow-hidden rounded-3xl border p-8"
+            className="group bg-taskify-surface border-taskify-border/70 interactive-card relative overflow-hidden rounded-3xl border p-8"
           >
             <span
               aria-hidden

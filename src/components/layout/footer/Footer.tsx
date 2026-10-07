@@ -48,7 +48,7 @@ export default function Footer() {
           </p>
           <Link
             href="/contact"
-            className="group border-taskify-border/80 text-taskify-text hover:border-taskify-accent mt-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors"
+            className="group border-taskify-border/80 text-taskify-text hover:border-taskify-accent interactive-button mt-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium"
           >
             <Icon
               name="lucide:message-circle"

@@ -52,7 +52,7 @@ export default function WorkflowSection({ workflow }: WorkflowSectionProps) {
                   )}
                   <span
                     className={cn(
-                      "relative flex size-12 shrink-0 items-center justify-center rounded-full border transition-[transform,border-color] duration-300 group-hover:-translate-y-0.5",
+                      "relative flex size-12 shrink-0 items-center justify-center rounded-full border transition group-hover:-translate-y-0.5",
                       isFinalStage
                         ? "from-taskify-primary to-taskify-secondary border-transparent bg-linear-to-br text-white shadow-[0_8px_24px_-8px_rgb(88_92_131/0.6)]"
                         : "border-taskify-border bg-taskify-surface text-taskify-link group-hover:border-taskify-accent"

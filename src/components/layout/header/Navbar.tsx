@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-300",
+        "sticky top-0 z-50 border-b transition-[background-color,border-color,box-shadow]",
         isScrolled
           ? "bg-taskify-surface/75 border-taskify-border/60 shadow-[0_8px_30px_-12px_rgb(31_36_53/0.15)] backdrop-blur-xl backdrop-saturate-150"
           : "bg-taskify-surface/90 border-transparent backdrop-blur-md"
@@ -51,7 +51,7 @@ export default function Navbar() {
                   aria-current={isActive ? "page" : undefined}
                   onMouseEnter={() => setHoveredHref(link.href)}
                   className={cn(
-                    "relative z-10 block px-3.5 py-2 text-sm font-medium transition-colors duration-200",
+                    "relative z-10 block px-3.5 py-2 text-sm font-medium transition-colors",
                     isActive
                       ? "text-taskify-text"
                       : "text-taskify-text-secondary hover:text-taskify-text"
@@ -82,12 +82,12 @@ export default function Navbar() {
 
         <Link
           href="/#download"
-          className="group bg-taskify-text hover:bg-taskify-primary-dark inline-flex items-center gap-1.5 rounded-full py-2 pr-3 pl-4 text-sm font-semibold text-white shadow-sm transition-colors"
+          className="group bg-taskify-text hover:bg-taskify-primary-dark interactive-button inline-flex items-center gap-1.5 rounded-full py-2 pr-3 pl-4 text-sm font-semibold text-white shadow-sm"
         >
           Get the app
           <Icon
             name="lucide:arrow-up-right"
-            className="text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 lg:text-sm"
+            className="text-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 lg:text-sm"
           />
         </Link>
       </nav>

@@ -40,9 +40,9 @@ export default function ContactChannels({
           <StaggerItem
             as="li"
             key={channel.title}
-            className="group bg-taskify-surface border-taskify-border/70 hover:border-taskify-accent/60 relative rounded-3xl border p-7 shadow-[0_24px_60px_-36px_rgb(31_36_53/0.35)] transition-[border-color,transform] duration-500 hover:-translate-y-1"
+            className="group bg-taskify-surface border-taskify-border/70 interactive-card relative rounded-3xl border p-7 shadow-[0_24px_60px_-36px_rgb(31_36_53/0.35)]"
           >
-            <span className="bg-taskify-surface-variant text-taskify-link group-hover:from-taskify-primary group-hover:to-taskify-secondary flex size-12 items-center justify-center rounded-2xl transition-colors duration-500 group-hover:bg-linear-to-br group-hover:text-white">
+            <span className="bg-taskify-surface-variant text-taskify-link group-hover:from-taskify-primary group-hover:to-taskify-secondary flex size-12 items-center justify-center rounded-2xl transition-colors group-hover:bg-linear-to-br group-hover:text-white">
               <Icon
                 name={channel.icon}
                 className="cursor-default text-xl lg:text-xl"

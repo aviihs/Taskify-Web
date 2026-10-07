@@ -23,7 +23,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="from-taskify-primary to-taskify-secondary mt-8 inline-flex items-center gap-2 rounded-xl bg-linear-to-r px-6 py-3 font-semibold text-white shadow-md transition-transform hover:-translate-y-0.5"
+          className="from-taskify-primary to-taskify-secondary interactive-button mt-8 inline-flex items-center gap-2 rounded-xl bg-linear-to-r px-6 py-3 font-semibold text-white shadow-md"
         >
           <Icon name="lucide:arrow-left" className="cursor-pointer" />
           Back to home

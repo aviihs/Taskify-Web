@@ -36,14 +36,14 @@ export default function PolicyContact({
           <div className="flex shrink-0 flex-col gap-2.5">
             <a
               href={`mailto:${contactEmail}`}
-              className="text-taskify-primary-dark inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-semibold shadow-lg shadow-black/10 transition-transform hover:-translate-y-0.5"
+              className="text-taskify-primary-dark interactive-button inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-semibold shadow-lg shadow-black/10"
             >
               <Icon name="lucide:mail" />
               Email us
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-5 py-3 font-semibold ring-1 ring-white/25 transition-colors hover:bg-white/20"
+              className="interactive-button inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-5 py-3 font-semibold ring-1 ring-white/25 hover:bg-white/20"
             >
               Contact page
               <Icon name="lucide:arrow-right" />

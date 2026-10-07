@@ -62,14 +62,14 @@ export default function HomeHero({ hero }: HomeHeroProps) {
           >
             <Link
               href={hero.primaryCta.href}
-              className="group text-taskify-primary-dark inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold shadow-[0_10px_40px_-10px_rgb(0_0_0/0.4)] transition-transform hover:-translate-y-0.5"
+              className="group text-taskify-primary-dark interactive-button inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold shadow-[0_10px_40px_-10px_rgb(0_0_0/0.4)]"
             >
               <Icon name="lucide:download" />
               {hero.primaryCta.label}
             </Link>
             <Link
               href={hero.secondaryCta.href}
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-7 py-3.5 font-semibold ring-1 ring-white/25 backdrop-blur transition-colors hover:bg-white/20"
+              className="group interactive-button inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-7 py-3.5 font-semibold ring-1 ring-white/25 backdrop-blur hover:bg-white/20"
             >
               {hero.secondaryCta.label}
               <Icon

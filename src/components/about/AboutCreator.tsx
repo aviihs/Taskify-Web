@@ -75,7 +75,7 @@ export default function AboutCreator({ creator }: AboutCreatorProps) {
             href={site.creator.url}
             target="_blank"
             rel="noopener noreferrer me"
-            className="group border-taskify-border/80 text-taskify-text hover:border-taskify-accent mt-3 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 font-semibold transition-colors"
+            className="group border-taskify-border/80 text-taskify-text hover:border-taskify-accent interactive-button mt-3 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 font-semibold"
           >
             <Icon name="mdi:github" />
             {creator.linkLabel}

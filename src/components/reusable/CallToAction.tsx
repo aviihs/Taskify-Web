@@ -40,7 +40,7 @@ export default function CallToAction({
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href={primaryCta.href}
-              className="group text-taskify-primary-dark inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold shadow-lg shadow-black/15 transition-transform hover:-translate-y-0.5"
+              className="group text-taskify-primary-dark interactive-button inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold shadow-lg shadow-black/15"
             >
               {primaryCta.label}
               <Icon
@@ -51,7 +51,7 @@ export default function CallToAction({
             {secondaryCta && (
               <Link
                 href={secondaryCta.href}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-6 py-3.5 font-semibold ring-1 ring-white/25 backdrop-blur transition-colors hover:bg-white/20"
+                className="interactive-button inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-6 py-3.5 font-semibold ring-1 ring-white/25 backdrop-blur hover:bg-white/20"
               >
                 {secondaryCta.label}
               </Link>

@@ -17,14 +17,14 @@ export default function AboutValues({ values }: AboutValuesProps) {
           <StaggerItem
             as="li"
             key={value.title}
-            className="group bg-taskify-surface border-taskify-border/70 hover:border-taskify-accent/50 relative overflow-hidden rounded-3xl border p-8 transition-colors duration-500"
+            className="group bg-taskify-surface border-taskify-border/70 interactive-card relative overflow-hidden rounded-3xl border p-8"
           >
             <div
               aria-hidden
-              className="bg-taskify-accent/20 absolute -top-24 -right-24 size-56 rounded-full opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-100"
+              className="bg-taskify-accent/20 absolute -top-24 -right-24 size-56 rounded-full opacity-0 blur-3xl transition-opacity group-hover:opacity-100"
             />
             <div className="relative flex items-start justify-between">
-              <span className="from-taskify-primary to-taskify-secondary flex size-12 items-center justify-center rounded-2xl bg-linear-to-br text-white shadow-lg shadow-black/10 transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-3">
+              <span className="from-taskify-primary to-taskify-secondary flex size-12 items-center justify-center rounded-2xl bg-linear-to-br text-white shadow-lg shadow-black/10 transition-transform group-hover:scale-105 group-hover:-rotate-3">
                 <Icon
                   name={value.icon}
                   className="cursor-default text-xl lg:text-xl"

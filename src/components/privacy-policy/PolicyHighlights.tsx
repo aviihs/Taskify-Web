@@ -18,7 +18,7 @@ export default function PolicyHighlights({
         <StaggerItem
           as="li"
           key={highlight.title}
-          className="bg-taskify-surface border-taskify-border/70 rounded-3xl border p-6 shadow-[0_24px_60px_-36px_rgb(31_36_53/0.35)]"
+          className="bg-taskify-surface border-taskify-border/70 interactive-card rounded-3xl border p-6 shadow-[0_24px_60px_-36px_rgb(31_36_53/0.35)]"
         >
           <span className="from-taskify-primary to-taskify-secondary mb-5 flex size-11 items-center justify-center rounded-2xl bg-linear-to-br text-white">
             <Icon

@@ -23,7 +23,7 @@ export default function SecuritySection({ security }: SecuritySectionProps) {
           <Reveal delay={0.1}>
             <Link
               href="/privacy-policy"
-              className="group border-taskify-border/80 text-taskify-text hover:border-taskify-accent mt-8 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 font-semibold transition-colors"
+              className="group border-taskify-border/80 text-taskify-text hover:border-taskify-accent interactive-button mt-8 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 font-semibold"
             >
               {security.linkLabel}
               <Icon
@@ -39,9 +39,9 @@ export default function SecuritySection({ security }: SecuritySectionProps) {
             <StaggerItem
               as="li"
               key={item.title}
-              className="group bg-taskify-surface border-taskify-border/70 hover:border-taskify-accent/50 flex gap-5 rounded-3xl border p-6 transition-colors duration-500"
+              className="group bg-taskify-surface border-taskify-border/70 interactive-card flex gap-5 rounded-3xl border p-6"
             >
-              <span className="from-taskify-primary to-taskify-secondary flex size-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br text-white shadow-lg shadow-black/10 transition-transform duration-500 group-hover:scale-105">
+              <span className="from-taskify-primary to-taskify-secondary flex size-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br text-white shadow-lg shadow-black/10 transition-transform group-hover:scale-105">
                 <Icon
                   name={item.icon}
                   className="cursor-default text-xl lg:text-xl"

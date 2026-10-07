@@ -20,13 +20,13 @@ export default function FeatureGrid({ features }: FeatureGridProps) {
           <StaggerItem
             as="li"
             key={feature.title}
-            className="group bg-taskify-surface border-taskify-border/70 hover:border-taskify-accent/50 relative overflow-hidden rounded-3xl border p-7 transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgb(88_92_131/0.45)]"
+            className="group bg-taskify-surface border-taskify-border/70 interactive-card relative overflow-hidden rounded-3xl border p-7"
           >
             <div
               aria-hidden
-              className="from-taskify-surface-variant/0 to-taskify-surface-variant/70 absolute inset-0 bg-linear-to-b opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              className="from-taskify-surface-variant/0 to-taskify-surface-variant/70 absolute inset-0 bg-linear-to-b opacity-0 transition-opacity group-hover:opacity-100"
             />
-            <span className="bg-taskify-surface-variant text-taskify-link group-hover:from-taskify-primary group-hover:to-taskify-secondary relative flex size-12 items-center justify-center rounded-2xl transition-colors duration-500 group-hover:bg-linear-to-br group-hover:text-white">
+            <span className="bg-taskify-surface-variant text-taskify-link group-hover:from-taskify-primary group-hover:to-taskify-secondary relative flex size-12 items-center justify-center rounded-2xl transition-colors group-hover:bg-linear-to-br group-hover:text-white">
               <Icon
                 name={feature.icon}
                 className="cursor-default text-xl lg:text-xl"

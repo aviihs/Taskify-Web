@@ -51,7 +51,7 @@ export default function DownloadSection({ download }: DownloadSectionProps) {
                       href={store.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`${badgeClassName} transition-transform hover:-translate-y-0.5`}
+                      className={`${badgeClassName} interactive-button`}
                     >
                       {badge}
                     </a>
