@@ -71,7 +71,7 @@ export default function Navbar() {
                   <motion.span
                     layoutId="nav-active"
                     aria-hidden
-                    className="bg-taskify-primary absolute -bottom-[13px] left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full"
+                    className="bg-taskify-primary absolute -bottom-3.25 left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
