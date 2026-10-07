@@ -19,11 +19,11 @@ export default function HomeHero({ hero }: HomeHeroProps) {
       />
       <div
         aria-hidden
-        className="bg-taskify-accent/40 absolute -top-40 right-0 -z-10 size-[32rem] rounded-full blur-3xl"
+        className="bg-taskify-accent/40 absolute -top-40 right-0 -z-10 size-128 rounded-full blur-3xl"
       />
       <div
         aria-hidden
-        className="absolute -bottom-48 -left-32 -z-10 size-[28rem] rounded-full bg-white/10 blur-3xl"
+        className="absolute -bottom-48 -left-32 -z-10 size-112 rounded-full bg-white/10 blur-3xl"
       />
 
       <div className="mx-auto grid max-w-6xl items-center gap-16 px-4 pt-16 pb-28 sm:pt-24 sm:pb-36 lg:grid-cols-[1.15fr_1fr]">

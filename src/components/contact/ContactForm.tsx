@@ -104,7 +104,7 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.5, ease: EASE_OUT_EXPO }}
-            className="flex min-h-[28rem] flex-col items-center justify-center text-center"
+            className="flex min-h-112 flex-col items-center justify-center text-center"
           >
             <motion.span
               initial={{ scale: 0, rotate: -30 }}
@@ -278,7 +278,7 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
               tabIndex={-1}
               autoComplete="off"
               aria-hidden
-              className="absolute -left-[9999px] size-px opacity-0"
+              className="absolute left-[-9999px] size-px opacity-0"
               {...register("botField")}
             />
 

@@ -28,12 +28,12 @@ export default function PriorityLevels({
             className="border-taskify-border/70 bg-taskify-background text-taskify-text inline-flex items-center gap-3 rounded-full border py-1.5 pr-3 pl-3.5 text-sm font-medium"
           >
             {priority.label}
-            <span aria-hidden className="flex items-end gap-[2px]">
+            <span aria-hidden className="flex items-end gap-0.5">
               {Array.from({ length: barCount }, (_, barIndex) => (
                 <span
                   key={barIndex}
                   className={cn(
-                    "w-[3px] rounded-full",
+                    "w-0.75 rounded-full",
                     barIndex <= index
                       ? TONE_DOT_CLASSES[priority.tone]
                       : "bg-taskify-border"
