@@ -86,8 +86,15 @@ export default function Footer() {
       <div className="border-taskify-border/60 border-t">
         <div className="text-taskify-text-muted mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm sm:flex-row">
           <p>
-            &copy; {new Date().getFullYear()} {site.legalName}. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {site.legalName}. Built by{" "}
+            <Link
+              href="/about#creator"
+              rel="author"
+              className="text-taskify-text-secondary hover:text-taskify-link font-medium transition-colors"
+            >
+              {site.creator.name}
+            </Link>
+            .
           </p>
           <a
             href={`mailto:${site.contactEmail}`}

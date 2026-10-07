@@ -6,23 +6,40 @@ import PolicyHighlights from "@/components/privacy-policy/PolicyHighlights";
 import PolicySectionCard from "@/components/privacy-policy/PolicySectionCard";
 import PolicyToc from "@/components/privacy-policy/PolicyToc";
 import ReadingProgress from "@/components/privacy-policy/ReadingProgress";
+import JsonLd from "@/components/reusable/JsonLd";
 import PageHero from "@/components/reusable/PageHero";
 import privacyPolicyContent from "@/data/privacy-policy.json";
 import site from "@/data/site.json";
+import { buildPageMetadata } from "@/lib/seo";
+import { buildWebPageSchema } from "@/lib/structured-data";
 import type { PrivacyPolicy } from "@/types/PrivacyPolicy";
 
 const privacyPolicy: PrivacyPolicy = privacyPolicyContent;
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: `How ${site.legalName} collects, uses and protects your information.`,
-};
+const PRIVACY_TITLE = "Privacy Policy";
+const PRIVACY_DESCRIPTION = `How the ${site.name} app and website collect, use and protect your information. No ads, no trackers, and your data is never sold.`;
+
+export const metadata: Metadata = buildPageMetadata({
+  title: PRIVACY_TITLE,
+  description: PRIVACY_DESCRIPTION,
+  path: "/privacy-policy",
+  keywords: ["Taskify privacy policy", "Taskify data deletion"],
+});
 
 export default function PrivacyPolicyPage() {
   const { lastUpdated, intro, highlights, sections } = privacyPolicy;
 
   return (
     <main className="bg-taskify-background text-taskify-text pb-28">
+      <JsonLd
+        data={buildWebPageSchema({
+          type: "WebPage",
+          path: "/privacy-policy",
+          title: PRIVACY_TITLE,
+          description: PRIVACY_DESCRIPTION,
+          dateModified: new Date(lastUpdated).toISOString().slice(0, 10),
+        })}
+      />
       <ReadingProgress />
       <PageHero
         eyebrow={`${site.name} Privacy`}

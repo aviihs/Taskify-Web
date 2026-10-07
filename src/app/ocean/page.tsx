@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
+
 import { Container, Text, Theme } from "@/components/common/layout";
 import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/lib/i18n/LocaleSwitcher";
+
+// Internal component gallery, kept out of search results.
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function OceanPage() {
   return (

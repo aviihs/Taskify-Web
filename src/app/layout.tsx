@@ -16,7 +16,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-const defaultTitle = `${site.name} · Task and project manager for teams`;
+const defaultTitle = `${site.name} by ${site.creator.name} · Task and project manager for teams`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

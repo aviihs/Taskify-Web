@@ -4,21 +4,38 @@ import ContactChannels from "@/components/contact/ContactChannels";
 import ContactFaq from "@/components/contact/ContactFaq";
 import ContactForm from "@/components/contact/ContactForm";
 import { Reveal } from "@/components/motion/Reveal";
+import JsonLd from "@/components/reusable/JsonLd";
 import PageHero from "@/components/reusable/PageHero";
 import contactContent from "@/data/contact.json";
 import site from "@/data/site.json";
+import { buildPageMetadata } from "@/lib/seo";
+import { buildFaqSchema, buildWebPageSchema } from "@/lib/structured-data";
 import type { ContactPageContent } from "@/types/ContactPage";
 
 const contact: ContactPageContent = contactContent;
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: `Get in touch with the ${site.name} team for support, feedback or privacy requests.`,
-};
+const CONTACT_TITLE = `Contact ${site.name}`;
+const CONTACT_DESCRIPTION = `Get in touch with ${site.creator.name} and the ${site.name} team for product support, feedback, partnerships or privacy requests. Email ${site.contactEmail}.`;
+
+export const metadata: Metadata = buildPageMetadata({
+  title: CONTACT_TITLE,
+  description: CONTACT_DESCRIPTION,
+  path: "/contact",
+  keywords: ["Taskify support", "contact Taskify", "Taskify help"],
+});
 
 export default function ContactPage() {
   return (
     <main className="bg-taskify-background pb-28">
+      <JsonLd
+        data={buildWebPageSchema({
+          type: "ContactPage",
+          path: "/contact",
+          title: CONTACT_TITLE,
+          description: CONTACT_DESCRIPTION,
+        })}
+      />
+      <JsonLd data={buildFaqSchema(contact.faq.items)} />
       <PageHero
         eyebrow={contact.hero.eyebrow}
         eyebrowIcon="lucide:message-circle"

@@ -10,6 +10,11 @@ export interface AboutContent {
     paragraphs: string[];
     facts: { value: string; label: string }[];
   };
+  creator: SectionIntro & {
+    paragraphs: string[];
+    highlights: { icon: string; label: string }[];
+    linkLabel: string;
+  };
   values: SectionIntro & { items: IconCard[] };
   principles: SectionIntro & {
     items: { title: string; description: string }[];

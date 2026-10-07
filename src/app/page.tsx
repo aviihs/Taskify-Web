@@ -5,7 +5,9 @@ import SecuritySection from "@/components/home/SecuritySection";
 import StatsStrip from "@/components/home/StatsStrip";
 import StepsSection from "@/components/home/StepsSection";
 import WorkflowSection from "@/components/home/WorkflowSection";
+import JsonLd from "@/components/reusable/JsonLd";
 import homeContent from "@/data/home.json";
+import { buildAppSchema } from "@/lib/structured-data";
 import type { HomeContent } from "@/types/Home";
 
 const home = homeContent as HomeContent;
@@ -13,6 +15,9 @@ const home = homeContent as HomeContent;
 export default function HomePage() {
   return (
     <main className="bg-taskify-background space-y-28 pb-28 sm:space-y-36">
+      <JsonLd
+        data={buildAppSchema(home.features.items.map(feature => feature.title))}
+      />
       <div>
         <HomeHero hero={home.hero} />
         <StatsStrip stats={home.stats} />

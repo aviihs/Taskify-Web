@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -93,6 +95,11 @@ function Section({
     </section>
   );
 }
+
+// Internal component gallery, kept out of search results.
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function DemoPage() {
   return (

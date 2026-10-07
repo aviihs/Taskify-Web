@@ -13,11 +13,46 @@
       "We keep the product focused on purpose. No ads, no trackers and no features that exist only to keep you scrolling. Just the tools a team needs to plan, track and ship."
     ],
     "facts": [
-      { "value": "6", "label": "Clear task stages" },
-      { "value": "4", "label": "Priority levels" },
-      { "value": "2", "label": "Platforms, iOS and Android" },
-      { "value": "0", "label": "Ads or trackers" }
+      {
+        "value": "6",
+        "label": "Clear task stages"
+      },
+      {
+        "value": "4",
+        "label": "Priority levels"
+      },
+      {
+        "value": "2",
+        "label": "Platforms, iOS and Android"
+      },
+      {
+        "value": "0",
+        "label": "Ads or trackers"
+      }
     ]
+  },
+  "creator": {
+    "eyebrow": "The maker",
+    "title": "Designed and built by Shiva Bhusal",
+    "paragraphs": [
+      "Taskify is created by Shiva Bhusal, who designs and builds every part of it: the Android and iOS app, the backend that keeps your tasks in sync, and this website.",
+      "Being made by one focused maker means every decision is deliberate, from how a task moves between stages to how your data is protected. Feedback goes straight to the person building the product."
+    ],
+    "highlights": [
+      {
+        "icon": "lucide:smartphone",
+        "label": "Mobile app"
+      },
+      {
+        "icon": "lucide:server",
+        "label": "Backend and API"
+      },
+      {
+        "icon": "lucide:globe",
+        "label": "Website"
+      }
+    ],
+    "linkLabel": "Follow on GitHub"
   },
   "values": {
     "eyebrow": "What we value",
@@ -67,7 +102,13 @@
   "cta": {
     "title": "Let's get your team organised",
     "description": "Download Taskify and create your first project in under a minute, or reach out if you have questions.",
-    "primaryCta": { "label": "Get the app", "href": "/#download" },
-    "secondaryCta": { "label": "Contact us", "href": "/contact" }
+    "primaryCta": {
+      "label": "Get the app",
+      "href": "/#download"
+    },
+    "secondaryCta": {
+      "label": "Contact us",
+      "href": "/contact"
+    }
   }
 }
