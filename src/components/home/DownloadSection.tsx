@@ -1,4 +1,5 @@
 import Icon from "@/components/common/icon";
+import { Reveal } from "@/components/motion/Reveal";
 import site from "@/data/site.json";
 import type { HomeContent } from "@/types/Home";
 
@@ -8,17 +9,21 @@ interface DownloadSectionProps {
 
 export default function DownloadSection({ download }: DownloadSectionProps) {
   return (
-    <section id="download" className="mx-auto max-w-6xl scroll-mt-20 px-4">
-      <div className="from-taskify-primary-dark via-taskify-primary to-taskify-secondary relative overflow-hidden rounded-3xl bg-linear-to-br px-6 py-16 text-center text-white sm:px-12">
+    <section id="download" className="mx-auto max-w-6xl scroll-mt-24 px-4">
+      <Reveal className="from-taskify-primary-dark via-taskify-primary to-taskify-secondary relative isolate overflow-hidden rounded-[2rem] bg-linear-to-br px-6 py-16 text-center text-white sm:px-12 sm:py-24">
         <div
           aria-hidden
-          className="bg-taskify-accent/50 absolute -top-20 -right-20 size-72 rounded-full blur-3xl"
+          className="bg-grid-white mask-fade-b absolute inset-0 -z-10"
         />
-        <div className="relative mx-auto max-w-2xl">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+        <div
+          aria-hidden
+          className="bg-taskify-accent/50 absolute -top-24 -right-24 -z-10 size-80 rounded-full blur-3xl"
+        />
+        <div className="mx-auto max-w-2xl">
+          <h2 className="text-3xl font-semibold tracking-[-0.03em] text-balance sm:text-5xl">
             {download.title}
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-white/80">
+          <p className="mt-5 text-lg leading-relaxed text-white/75">
             {download.description}
           </p>
 
@@ -37,7 +42,7 @@ export default function DownloadSection({ download }: DownloadSectionProps) {
                 </>
               );
               const badgeClassName =
-                "inline-flex min-w-48 items-center justify-center gap-3 rounded-xl bg-black/80 px-5 py-3 ring-1 ring-white/15";
+                "inline-flex min-w-52 items-center justify-center gap-3 rounded-2xl bg-black/85 px-5 py-3.5 ring-1 ring-white/15 backdrop-blur";
 
               return (
                 <li key={store.label}>
@@ -70,7 +75,7 @@ export default function DownloadSection({ download }: DownloadSectionProps) {
             </a>
           </p>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

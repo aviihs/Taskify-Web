@@ -12,7 +12,7 @@ const home = homeContent as HomeContent;
 
 export default function HomePage() {
   return (
-    <main className="bg-taskify-background space-y-24 pb-24 sm:space-y-32">
+    <main className="bg-taskify-background space-y-28 pb-28 sm:space-y-36">
       <div>
         <HomeHero hero={home.hero} />
         <StatsStrip stats={home.stats} />

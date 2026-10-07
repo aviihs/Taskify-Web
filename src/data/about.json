@@ -1,1 +1,73 @@
-{}
+{
+  "hero": {
+    "eyebrow": "About Taskify",
+    "title": "Calm software for teams with a lot to do",
+    "description": "Taskify exists so teams can stop chasing updates and start finishing work. One place for projects, people and progress, designed to stay out of your way."
+  },
+  "story": {
+    "eyebrow": "Our story",
+    "title": "Built because busy teams deserve better",
+    "paragraphs": [
+      "Most teams don't fail because of hard problems. They lose time to scattered messages, forgotten follow-ups and nobody being quite sure who owns what.",
+      "We built Taskify to fix that. Every task has an owner, a priority and a clear stage, so anyone can see where things stand without asking. It works the same on your phone and on the web.",
+      "We keep the product focused on purpose. No ads, no trackers and no features that exist only to keep you scrolling. Just the tools a team needs to plan, track and ship."
+    ],
+    "facts": [
+      { "value": "6", "label": "Clear task stages" },
+      { "value": "4", "label": "Priority levels" },
+      { "value": "2", "label": "Platforms, iOS and Android" },
+      { "value": "0", "label": "Ads or trackers" }
+    ]
+  },
+  "values": {
+    "eyebrow": "What we value",
+    "title": "The principles behind every screen",
+    "description": "A few ideas we come back to whenever we decide what to build next.",
+    "items": [
+      {
+        "icon": "lucide:scan-eye",
+        "title": "Clarity over clutter",
+        "description": "Every screen answers one question well. If a feature makes the app harder to read, it doesn't ship."
+      },
+      {
+        "icon": "lucide:shield-check",
+        "title": "Private by default",
+        "description": "Your work belongs to you. We never sell data, and biometrics never leave your device."
+      },
+      {
+        "icon": "lucide:users-round",
+        "title": "Made for teams",
+        "description": "Ownership, assignments and activity history are built in, so collaboration feels natural."
+      },
+      {
+        "icon": "lucide:zap",
+        "title": "Fast everywhere",
+        "description": "Opening the app, moving a task, finding a project. Every interaction should feel instant."
+      }
+    ]
+  },
+  "principles": {
+    "eyebrow": "How we work",
+    "title": "Small team, high standards",
+    "items": [
+      {
+        "title": "Listen first",
+        "description": "Feedback from real teams shapes the roadmap. Every message to our inbox is read by a person."
+      },
+      {
+        "title": "Ship carefully",
+        "description": "We test changes on our own projects before they reach yours, so updates feel like improvements, not surprises."
+      },
+      {
+        "title": "Stay honest",
+        "description": "Plain-language privacy, transparent changes and no dark patterns. If something breaks, we tell you."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Let's get your team organised",
+    "description": "Download Taskify and create your first project in under a minute, or reach out if you have questions.",
+    "primaryCta": { "label": "Get the app", "href": "/#download" },
+    "secondaryCta": { "label": "Contact us", "href": "/contact" }
+  }
+}

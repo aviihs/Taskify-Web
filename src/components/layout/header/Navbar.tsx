@@ -1,71 +1,95 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 
 import Icon from "@/components/common/icon";
 import BrandLogo from "@/components/reusable/BrandLogo";
+import { cn } from "@/lib/utils";
 
-const NAV_LINKS = [
-  { label: "Features", href: "/#features" },
-  { label: "Workflow", href: "/#workflow" },
-  { label: "Security", href: "/#security" },
-  { label: "Privacy", href: "/privacy-policy" },
-];
+import MobileMenu from "./MobileMenu";
+import { isNavLinkActive, NAV_LINKS } from "./nav-links";
 
 export default function Navbar() {
-  return (
-    <header className="bg-taskify-surface/80 border-taskify-border/60 sticky top-0 z-50 border-b backdrop-blur-lg">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <BrandLogo />
+  const pathname = usePathname();
+  const { scrollY } = useScroll();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [hoveredHref, setHoveredHref] = useState<string | null>(null);
 
-        <ul className="hidden items-center gap-1 md:flex">
-          {NAV_LINKS.map(link => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-taskify-text-secondary hover:bg-taskify-surface-variant hover:text-taskify-text rounded-lg px-3 py-2 text-sm font-medium transition-colors"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+  useMotionValueEvent(scrollY, "change", latest => {
+    setIsScrolled(latest > 8);
+  });
+
+  return (
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-300",
+        isScrolled
+          ? "bg-taskify-surface/75 border-taskify-border/60 shadow-[0_8px_30px_-12px_rgb(31_36_53/0.15)] backdrop-blur-xl backdrop-saturate-150"
+          : "bg-taskify-surface/90 border-transparent backdrop-blur-md"
+      )}
+    >
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
+        <div className="flex items-center gap-2">
+          <MobileMenu pathname={pathname} />
+          <BrandLogo />
+        </div>
+
+        <ul
+          className="hidden items-center md:flex"
+          onMouseLeave={() => setHoveredHref(null)}
+        >
+          {NAV_LINKS.map(link => {
+            const isActive = isNavLinkActive(link.href, pathname);
+            return (
+              <li key={link.href} className="relative">
+                <Link
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                  onMouseEnter={() => setHoveredHref(link.href)}
+                  className={cn(
+                    "relative z-10 block px-3.5 py-2 text-sm font-medium transition-colors duration-200",
+                    isActive
+                      ? "text-taskify-text"
+                      : "text-taskify-text-secondary hover:text-taskify-text"
+                  )}
+                >
+                  {link.label}
+                </Link>
+                {hoveredHref === link.href && (
+                  <motion.span
+                    layoutId="nav-hover"
+                    aria-hidden
+                    className="bg-taskify-surface-variant/70 absolute inset-0 rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-active"
+                    aria-hidden
+                    className="bg-taskify-primary absolute -bottom-[13px] left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+              </li>
+            );
+          })}
         </ul>
 
-        <div className="flex items-center gap-2">
-          <Link
-            href="/#download"
-            className="from-taskify-primary to-taskify-secondary shadow-taskify-primary/25 rounded-xl bg-linear-to-r px-4 py-2 text-sm font-semibold text-white shadow-md transition-transform hover:-translate-y-0.5"
-          >
-            Get the app
-          </Link>
-
-          {/* Mobile menu — <details> keeps this a Server Component */}
-          <details className="group relative md:hidden">
-            <summary
-              aria-label="Open menu"
-              className="text-taskify-text hover:bg-taskify-surface-variant flex size-10 cursor-pointer list-none items-center justify-center rounded-xl"
-            >
-              <Icon
-                name="lucide:menu"
-                className="text-xl group-open:hidden lg:text-xl"
-              />
-              <Icon
-                name="lucide:x"
-                className="hidden text-xl group-open:flex lg:text-xl"
-              />
-            </summary>
-            <ul className="bg-taskify-surface border-taskify-border/70 absolute top-12 right-0 w-52 rounded-2xl border p-2 shadow-xl shadow-black/10">
-              {NAV_LINKS.map(link => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-taskify-text-secondary hover:bg-taskify-surface-variant hover:text-taskify-text block rounded-lg px-3 py-2.5 text-sm font-medium"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </details>
-        </div>
+        <Link
+          href="/#download"
+          className="group bg-taskify-text hover:bg-taskify-primary-dark inline-flex items-center gap-1.5 rounded-full py-2 pr-3 pl-4 text-sm font-semibold text-white shadow-sm transition-colors"
+        >
+          Get the app
+          <Icon
+            name="lucide:arrow-up-right"
+            className="text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 lg:text-sm"
+          />
+        </Link>
       </nav>
     </header>
   );

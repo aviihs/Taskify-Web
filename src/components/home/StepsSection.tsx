@@ -1,6 +1,6 @@
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import SectionIntro from "@/components/reusable/SectionIntro";
 import type { HomeContent } from "@/types/Home";
-
-import SectionIntro from "./SectionIntro";
 
 interface StepsSectionProps {
   steps: HomeContent["steps"];
@@ -8,30 +8,34 @@ interface StepsSectionProps {
 
 export default function StepsSection({ steps }: StepsSectionProps) {
   return (
-    <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-20 px-4">
+    <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-24 px-4">
       <SectionIntro {...steps} />
 
-      <ol className="mt-14 grid gap-6 md:grid-cols-3">
+      <Stagger as="ol" className="mt-16 grid gap-4 md:grid-cols-3">
         {steps.items.map((step, index) => (
-          <li key={step.title} className="relative text-center">
-            {index > 0 && (
-              <span
-                aria-hidden
-                className="bg-taskify-border absolute top-7 right-1/2 hidden h-px w-full md:block"
-              />
-            )}
-            <span className="from-taskify-primary to-taskify-secondary relative mx-auto flex size-14 items-center justify-center rounded-2xl bg-linear-to-br text-xl font-extrabold text-white shadow-lg shadow-black/10">
+          <StaggerItem
+            as="li"
+            key={step.title}
+            className="group bg-taskify-surface border-taskify-border/70 relative overflow-hidden rounded-3xl border p-8"
+          >
+            <span
+              aria-hidden
+              className="from-taskify-surface-variant pointer-events-none absolute -top-6 -right-2 bg-linear-to-b to-transparent bg-clip-text text-[9rem] leading-none font-semibold tracking-tighter text-transparent select-none"
+            >
               {index + 1}
             </span>
-            <h3 className="text-taskify-text mt-5 text-lg font-semibold">
+            <span className="from-taskify-primary to-taskify-secondary relative flex size-11 items-center justify-center rounded-2xl bg-linear-to-br text-base font-semibold text-white shadow-lg shadow-black/10">
+              {index + 1}
+            </span>
+            <h3 className="text-taskify-text relative mt-8 text-lg font-semibold tracking-tight">
               {step.title}
             </h3>
-            <p className="text-taskify-text-secondary mx-auto mt-2 max-w-xs leading-relaxed">
+            <p className="text-taskify-text-secondary relative mt-2 leading-relaxed">
               {step.description}
             </p>
-          </li>
+          </StaggerItem>
         ))}
-      </ol>
+      </Stagger>
     </section>
   );
 }

@@ -15,6 +15,14 @@ const FOOTER_LINK_GROUPS = [
     ],
   },
   {
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Security", href: "/#security" },
+    ],
+  },
+  {
     title: "Legal",
     links: [
       { label: "Privacy Policy", href: "/privacy-policy" },
@@ -26,36 +34,45 @@ const FOOTER_LINK_GROUPS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-taskify-surface border-taskify-border/60 border-t">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr]">
-        <div className="max-w-xs">
+    <footer className="bg-taskify-surface border-taskify-border/60 relative overflow-hidden border-t">
+      <div
+        aria-hidden
+        className="via-taskify-accent/50 absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent to-transparent"
+      />
+
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 pt-16 pb-12 sm:grid-cols-3 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div className="max-w-xs sm:col-span-3 lg:col-span-1">
           <BrandLogo />
-          <p className="text-taskify-text-secondary mt-3 text-sm leading-relaxed">
+          <p className="text-taskify-text-secondary mt-4 text-sm leading-relaxed">
             {site.tagline}
           </p>
-          <a
-            href={`mailto:${site.contactEmail}`}
-            className="text-taskify-link mt-4 inline-flex items-center gap-2 text-sm font-semibold hover:underline"
+          <Link
+            href="/contact"
+            className="group border-taskify-border/80 text-taskify-text hover:border-taskify-accent mt-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors"
           >
             <Icon
-              name="lucide:mail"
-              className="cursor-pointer text-sm lg:text-sm"
+              name="lucide:message-circle"
+              className="text-taskify-link text-sm lg:text-sm"
             />
-            {site.contactEmail}
-          </a>
+            Talk to us
+            <Icon
+              name="lucide:arrow-right"
+              className="text-sm transition-transform group-hover:translate-x-0.5 lg:text-sm"
+            />
+          </Link>
         </div>
 
         {FOOTER_LINK_GROUPS.map(group => (
           <div key={group.title}>
-            <p className="text-taskify-text text-sm font-semibold">
+            <p className="text-taskify-text-muted text-xs font-semibold tracking-[0.16em] uppercase">
               {group.title}
             </p>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-5 space-y-3">
               {group.links.map(link => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-taskify-text-secondary hover:text-taskify-link text-sm transition-colors"
+                    className="text-taskify-text-secondary hover:text-taskify-text text-sm transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -67,13 +84,27 @@ export default function Footer() {
       </div>
 
       <div className="border-taskify-border/60 border-t">
-        <div className="text-taskify-text-muted mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-5 text-sm sm:flex-row">
+        <div className="text-taskify-text-muted mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm sm:flex-row">
           <p>
-            © {new Date().getFullYear()} {site.legalName}. All rights reserved.
+            &copy; {new Date().getFullYear()} {site.legalName}. All rights
+            reserved.
           </p>
-          <p>Made with care for teams that get things done.</p>
+          <a
+            href={`mailto:${site.contactEmail}`}
+            className="hover:text-taskify-link inline-flex items-center gap-2 transition-colors"
+          >
+            <Icon name="lucide:mail" className="text-sm lg:text-sm" />
+            {site.contactEmail}
+          </a>
         </div>
       </div>
+
+      <p
+        aria-hidden
+        className="from-taskify-surface-variant pointer-events-none -mb-6 bg-linear-to-b to-transparent bg-clip-text text-center text-[22vw] leading-none font-black tracking-tighter text-transparent select-none lg:-mb-12 lg:text-[16rem]"
+      >
+        {site.name}
+      </p>
     </footer>
   );
 }

@@ -166,3 +166,26 @@
     @apply font-sans;
   }
 }
+
+@layer utilities {
+  /* Faint line grid used behind hero sections. */
+  .bg-grid-white {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .mask-fade-b {
+    mask-image: radial-gradient(
+      ellipse 80% 70% at 50% 0%,
+      #000 40%,
+      transparent 100%
+    );
+  }
+}
+
+::selection {
+  background: var(--taskify-accent);
+  color: #fff;
+}

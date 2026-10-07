@@ -2,5 +2,30 @@
   "name": "Taskify",
   "legalName": "Taskify",
   "contactEmail": "taskify2026@gmail.com",
-  "tagline": "Plan projects, assign tasks and finish work together."
+  "tagline": "Plan projects, assign tasks and finish work together.",
+  "description": "Taskify is a task and project manager for teams, created by Shiva Bhusal. Organise projects, assign tasks, track progress and keep everyone in sync from your phone or the web.",
+  "locale": "en_US",
+  "themeColor": "#585c83",
+  "creator": {
+    "name": "Shiva Bhusal",
+    "role": "Creator of Taskify",
+    "url": "https://github.com/aviihs",
+    "sameAs": ["https://github.com/aviihs"]
+  },
+  "keywords": [
+    "Taskify",
+    "Taskify app",
+    "Taskify by Shiva Bhusal",
+    "Shiva Bhusal",
+    "Shiva Bhusal Taskify",
+    "Shiva Taskify",
+    "task manager",
+    "task management app",
+    "project management app",
+    "team collaboration app",
+    "to-do app for teams",
+    "kanban task tracker",
+    "Android task manager",
+    "iOS task manager"
+  ]
 }

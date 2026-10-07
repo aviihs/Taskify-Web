@@ -1,1 +1,68 @@
-{}
+{
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "We'd love to hear from you",
+    "description": "Questions, feedback, bug reports or privacy requests. Send us a note and a real person on the Taskify team will get back to you."
+  },
+  "channels": [
+    {
+      "icon": "lucide:life-buoy",
+      "title": "Product support",
+      "description": "Stuck on something in the app? Tell us what happened and we'll help you sort it out.",
+      "actionLabel": "Email support",
+      "href": "mailto",
+      "subject": "Taskify support"
+    },
+    {
+      "icon": "lucide:message-square-heart",
+      "title": "Feedback and ideas",
+      "description": "Missing a feature or have an idea to make Taskify better? We read every suggestion.",
+      "actionLabel": "Share feedback",
+      "href": "mailto",
+      "subject": "Taskify feedback"
+    },
+    {
+      "icon": "lucide:shield-check",
+      "title": "Privacy requests",
+      "description": "Ask for a copy of your data or permanent erasure. We handle every request within 30 days.",
+      "actionLabel": "Read the policy",
+      "href": "/privacy-policy"
+    }
+  ],
+  "form": {
+    "title": "Send us a message",
+    "description": "Fill in the details below. Submitting opens your email app with everything ready to send.",
+    "topics": [
+      "General question",
+      "Product support",
+      "Feedback",
+      "Privacy request",
+      "Partnership"
+    ],
+    "submitLabel": "Send message",
+    "successTitle": "Your email app should be open",
+    "successDescription": "Hit send there and we'll reply within a few working days. If nothing opened, email us directly."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Quick answers",
+    "items": [
+      {
+        "question": "How quickly will I hear back?",
+        "answer": "We usually reply within one to three working days. Privacy requests are always completed within 30 days."
+      },
+      {
+        "question": "Can my whole team use Taskify?",
+        "answer": "Yes. Create a team, invite your members under a team leader and share projects with everyone at once."
+      },
+      {
+        "question": "How do I delete my account?",
+        "answer": "Open Profile settings in the app and choose Delete account. If you also want your remaining records permanently erased, send us a privacy request."
+      },
+      {
+        "question": "Which platforms does Taskify support?",
+        "answer": "Taskify is built for Android and iOS. Store links appear on the home page as soon as they go live."
+      }
+    ]
+  }
+}

@@ -1,4 +1,9 @@
+"use client";
+
+import { motion } from "motion/react";
+
 import Icon from "@/components/common/icon";
+import { EASE_OUT_EXPO } from "@/components/motion/easing";
 import { cn } from "@/lib/utils";
 import type { HomeContent } from "@/types/Home";
 
@@ -40,17 +45,22 @@ export default function AppPreview({ preview }: AppPreviewProps) {
             </p>
           </div>
           <div className="bg-taskify-surface-variant mt-3 h-2 rounded-full">
-            <div
+            <motion.div
               className="from-taskify-primary to-taskify-accent h-2 rounded-full bg-linear-to-r"
-              style={{ width: `${preview.progress}%` }}
+              initial={{ width: 0 }}
+              animate={{ width: `${preview.progress}%` }}
+              transition={{ duration: 1.4, delay: 0.6, ease: EASE_OUT_EXPO }}
             />
           </div>
         </div>
 
         {/* Task list */}
         <ul className="space-y-2.5 px-4 pt-4 pb-6">
-          {preview.tasks.map(task => (
-            <li
+          {preview.tasks.map((task, index) => (
+            <motion.li
+              initial={{ opacity: 0, x: 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 + index * 0.12 }}
               key={task.title}
               className="bg-taskify-surface border-taskify-border/60 rounded-xl border p-3"
             >
@@ -83,7 +93,7 @@ export default function AppPreview({ preview }: AppPreviewProps) {
                   </div>
                 </div>
               </div>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>

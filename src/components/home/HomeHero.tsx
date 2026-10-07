@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import Icon from "@/components/common/icon";
+import { Float, Reveal } from "@/components/motion/Reveal";
 import type { HomeContent } from "@/types/Home";
 
 import AppPreview from "./AppPreview";
@@ -11,53 +12,113 @@ interface HomeHeroProps {
 
 export default function HomeHero({ hero }: HomeHeroProps) {
   return (
-    <section className="from-taskify-primary-dark via-taskify-primary to-taskify-secondary relative overflow-hidden bg-linear-to-br text-white">
+    <section className="from-taskify-primary-dark via-taskify-primary to-taskify-secondary relative isolate overflow-hidden bg-linear-to-br text-white">
       <div
         aria-hidden
-        className="bg-taskify-accent/40 absolute -top-32 right-0 size-96 rounded-full blur-3xl"
+        className="bg-grid-white mask-fade-b absolute inset-0 -z-10"
       />
       <div
         aria-hidden
-        className="absolute -bottom-40 -left-24 size-96 rounded-full bg-white/10 blur-3xl"
+        className="bg-taskify-accent/40 absolute -top-40 right-0 -z-10 size-[32rem] rounded-full blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="absolute -bottom-48 -left-32 -z-10 size-[28rem] rounded-full bg-white/10 blur-3xl"
       />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 py-16 sm:py-24 lg:grid-cols-[1.15fr_1fr]">
+      <div className="mx-auto grid max-w-6xl items-center gap-16 px-4 pt-16 pb-28 sm:pt-24 sm:pb-36 lg:grid-cols-[1.15fr_1fr]">
         <div className="text-center lg:text-left">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium ring-1 ring-white/20">
-            <Icon name="lucide:sparkles" className="cursor-default" />
-            {hero.badge}
-          </span>
-
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-balance sm:text-6xl">
-            {hero.title}{" "}
-            <span className="bg-linear-to-r from-white to-[#dde1f8] bg-clip-text text-transparent">
-              {hero.highlight}
+          <Reveal isImmediate>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 py-1 pr-4 pl-1 text-sm font-medium ring-1 ring-white/20 backdrop-blur">
+              <span className="text-taskify-primary-dark flex size-7 items-center justify-center rounded-full bg-white">
+                <Icon
+                  name="lucide:sparkles"
+                  className="cursor-default text-sm lg:text-sm"
+                />
+              </span>
+              {hero.badge}
             </span>
-          </h1>
+          </Reveal>
 
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-pretty text-white/80 lg:mx-0">
-            {hero.description}
-          </p>
+          <Reveal isImmediate delay={0.08}>
+            <h1 className="mt-7 text-5xl leading-[1.02] font-semibold tracking-[-0.04em] text-balance sm:text-7xl">
+              {hero.title}{" "}
+              <span className="bg-linear-to-r from-white via-[#dde1f8] to-[#b9bff0] bg-clip-text text-transparent">
+                {hero.highlight}
+              </span>
+            </h1>
+          </Reveal>
 
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+          <Reveal isImmediate delay={0.16}>
+            <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-pretty text-white/75 lg:mx-0">
+              {hero.description}
+            </p>
+          </Reveal>
+
+          <Reveal
+            isImmediate
+            delay={0.24}
+            className="mt-10 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start"
+          >
             <Link
               href={hero.primaryCta.href}
-              className="text-taskify-primary-dark inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 font-semibold shadow-lg shadow-black/15 transition-transform hover:-translate-y-0.5"
+              className="group text-taskify-primary-dark inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold shadow-[0_10px_40px_-10px_rgb(0_0_0/0.4)] transition-transform hover:-translate-y-0.5"
             >
-              <Icon name="lucide:download" className="cursor-pointer" />
+              <Icon name="lucide:download" />
               {hero.primaryCta.label}
             </Link>
             <Link
               href={hero.secondaryCta.href}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-6 py-3.5 font-semibold ring-1 ring-white/25 transition-colors hover:bg-white/20"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-7 py-3.5 font-semibold ring-1 ring-white/25 backdrop-blur transition-colors hover:bg-white/20"
             >
               {hero.secondaryCta.label}
-              <Icon name="lucide:arrow-right" className="cursor-pointer" />
+              <Icon
+                name="lucide:arrow-right"
+                className="transition-transform group-hover:translate-x-0.5"
+              />
             </Link>
-          </div>
+          </Reveal>
         </div>
 
-        <AppPreview preview={hero.preview} />
+        <Reveal isImmediate delay={0.2} offsetY={40} className="relative">
+          <Float distance={12} duration={7}>
+            <AppPreview preview={hero.preview} />
+          </Float>
+
+          <Float
+            distance={8}
+            duration={5}
+            delay={1}
+            className="absolute top-44 -left-2 hidden sm:block lg:-left-16"
+          >
+            <div className="bg-taskify-surface/95 text-taskify-text flex items-center gap-3 rounded-2xl py-2.5 pr-4 pl-2.5 shadow-2xl ring-1 shadow-black/25 ring-black/5 backdrop-blur">
+              <span className="flex size-9 items-center justify-center rounded-xl bg-green-500/15 text-green-600">
+                <Icon name="lucide:check-check" className="cursor-default" />
+              </span>
+              <div className="text-left">
+                <p className="text-sm font-semibold">Task completed</p>
+                <p className="text-taskify-text-muted text-xs">Just now</p>
+              </div>
+            </div>
+          </Float>
+
+          <Float
+            distance={10}
+            duration={6}
+            delay={0.5}
+            className="absolute -right-2 bottom-20 hidden sm:block lg:-right-8"
+          >
+            <div className="bg-taskify-surface/95 text-taskify-text flex items-center gap-3 rounded-2xl py-2.5 pr-4 pl-2.5 shadow-2xl ring-1 shadow-black/25 ring-black/5 backdrop-blur">
+              <span className="bg-taskify-surface-variant text-taskify-link flex size-9 items-center justify-center rounded-xl">
+                <Icon name="lucide:users-round" className="cursor-default" />
+              </span>
+              <div className="text-left">
+                <p className="text-sm font-semibold">Team synced</p>
+                <p className="text-taskify-text-muted text-xs">4 members</p>
+              </div>
+            </div>
+          </Float>
+        </Reveal>
       </div>
     </section>
   );
