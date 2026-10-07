@@ -31,7 +31,7 @@
   ],
   "form": {
     "title": "Send us a message",
-    "description": "Fill in the details below. Submitting opens your email app with everything ready to send.",
+    "description": "Fill in the details below and we'll get back to you within a few working days.",
     "topics": [
       "General question",
       "Product support",
@@ -40,8 +40,12 @@
       "Partnership"
     ],
     "submitLabel": "Send message",
-    "successTitle": "Your email app should be open",
-    "successDescription": "Hit send there and we'll reply within a few working days. If nothing opened, email us directly."
+    "successTitle": "Message sent",
+    "successDescription": "Thanks for reaching out. We've received your message and will reply to your email soon.",
+    "submittingLabel": "Sending...",
+    "errorTitle": "Your message didn't go through",
+    "errorDescription": "Please try again in a moment, or email us directly at",
+    "resetLabel": "Write another message"
   },
   "faq": {
     "eyebrow": "FAQ",

@@ -20,8 +20,12 @@ export interface ContactPageContent {
     description: string;
     topics: string[];
     submitLabel: string;
+    submittingLabel: string;
     successTitle: string;
     successDescription: string;
+    errorTitle: string;
+    errorDescription: string;
+    resetLabel: string;
   };
   faq: {
     eyebrow: string;

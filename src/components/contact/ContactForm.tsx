@@ -7,15 +7,17 @@ import { useForm } from "react-hook-form";
 
 import Icon from "@/components/common/icon";
 import { EASE_OUT_EXPO } from "@/components/motion/easing";
-import { buildMailtoLink } from "@/lib/mailto";
+import {
+  CONTACT_MESSAGE_LIMITS,
+  type ContactMessage,
+  EMAIL_PATTERN,
+} from "@/lib/contact-message";
 import { cn } from "@/lib/utils";
+import { submitContactForm } from "@/services/contactFormService";
 import type { ContactPageContent } from "@/types/ContactPage";
 
-interface ContactFormValues {
-  name: string;
-  email: string;
-  topic: string;
-  message: string;
+interface ContactFormValues extends ContactMessage {
+  botField: string;
 }
 
 interface ContactFormProps {
@@ -67,24 +69,24 @@ function Field({ id, label, error, children }: FieldProps) {
 
 export default function ContactForm({ form, contactEmail }: ContactFormProps) {
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [hasSendError, setHasSendError] = useState(false);
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
-    defaultValues: { topic: form.topics[0] },
+    defaultValues: { topic: form.topics[0], botField: "" },
   });
 
-  const handleSend = (values: ContactFormValues) => {
-    const body = `${values.message}\n\n${values.name}\n${values.email}`;
-    window.location.assign(
-      buildMailtoLink(contactEmail, {
-        subject: `${values.topic} from ${values.name}`,
-        body,
-      })
-    );
-    setHasSubmitted(true);
+  const handleSend = async (values: ContactFormValues) => {
+    setHasSendError(false);
+    try {
+      await submitContactForm(values);
+      setHasSubmitted(true);
+    } catch {
+      setHasSendError(true);
+    }
   };
 
   const handleStartOver = () => {
@@ -116,7 +118,7 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
               className="from-taskify-primary to-taskify-secondary flex size-16 items-center justify-center rounded-2xl bg-linear-to-br text-white shadow-lg shadow-black/15"
             >
               <Icon
-                name="lucide:send"
+                name="lucide:check"
                 className="cursor-default text-2xl lg:text-2xl"
               />
             </motion.span>
@@ -126,19 +128,13 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
             <p className="text-taskify-text-secondary mt-3 max-w-sm leading-relaxed">
               {form.successDescription}
             </p>
-            <a
-              href={`mailto:${contactEmail}`}
-              className="text-taskify-link mt-5 font-semibold underline-offset-4 hover:underline"
-            >
-              {contactEmail}
-            </a>
             <button
               type="button"
               onClick={handleStartOver}
               className="text-taskify-text-secondary hover:text-taskify-text mt-8 inline-flex items-center gap-2 text-sm font-medium transition-colors"
             >
               <Icon name="lucide:rotate-ccw" className="text-sm lg:text-sm" />
-              Write another message
+              {form.resetLabel}
             </button>
           </motion.div>
         ) : (
@@ -146,6 +142,7 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
             key="form"
             noValidate
             onSubmit={handleSubmit(handleSend)}
+            className="relative"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, y: -8 }}
@@ -178,6 +175,10 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
                   )}
                   {...register("name", {
                     required: "Please tell us your name",
+                    maxLength: {
+                      value: CONTACT_MESSAGE_LIMITS.nameMaxLength,
+                      message: "That name is too long",
+                    },
                   })}
                 />
               </Field>
@@ -203,8 +204,12 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
                   {...register("email", {
                     required: "Please enter your email",
                     pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      value: EMAIL_PATTERN,
                       message: "That email doesn't look right",
+                    },
+                    maxLength: {
+                      value: CONTACT_MESSAGE_LIMITS.emailMaxLength,
+                      message: "That email is too long",
                     },
                   })}
                 />
@@ -254,8 +259,12 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
                     {...register("message", {
                       required: "Please write a message",
                       minLength: {
-                        value: 10,
+                        value: CONTACT_MESSAGE_LIMITS.messageMinLength,
                         message: "A little more detail helps us help you",
+                      },
+                      maxLength: {
+                        value: CONTACT_MESSAGE_LIMITS.messageMaxLength,
+                        message: "Please keep it under 5000 characters",
                       },
                     })}
                   />
@@ -263,16 +272,62 @@ export default function ContactForm({ form, contactEmail }: ContactFormProps) {
               </div>
             </div>
 
+            {/* Honeypot: hidden from people, tempting to bots. */}
+            <input
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden
+              className="absolute -left-[9999px] size-px opacity-0"
+              {...register("botField")}
+            />
+
+            <AnimatePresence>
+              {hasSendError && (
+                <motion.div
+                  role="alert"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="overflow-hidden"
+                >
+                  <div className="mt-6 flex gap-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                    <Icon
+                      name="lucide:circle-alert"
+                      className="mt-0.5 shrink-0 cursor-default"
+                    />
+                    <p>
+                      <span className="font-semibold">{form.errorTitle}.</span>{" "}
+                      {form.errorDescription}{" "}
+                      <a
+                        href={`mailto:${contactEmail}`}
+                        className="font-semibold underline underline-offset-2"
+                      >
+                        {contactEmail}
+                      </a>
+                      .
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             <motion.button
               type="submit"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="group bg-taskify-text hover:bg-taskify-primary-dark mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold text-white shadow-lg shadow-black/10 transition-colors sm:w-auto"
+              disabled={isSubmitting}
+              whileHover={isSubmitting ? undefined : { y: -2 }}
+              whileTap={isSubmitting ? undefined : { scale: 0.98 }}
+              className="group bg-taskify-text hover:bg-taskify-primary-dark mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold text-white shadow-lg shadow-black/10 transition-colors disabled:cursor-wait disabled:opacity-70 sm:w-auto"
             >
-              {form.submitLabel}
+              {isSubmitting ? form.submittingLabel : form.submitLabel}
               <Icon
-                name="lucide:arrow-right"
-                className="transition-transform group-hover:translate-x-0.5"
+                name={
+                  isSubmitting ? "lucide:loader-circle" : "lucide:arrow-right"
+                }
+                className={cn(
+                  "transition-transform",
+                  isSubmitting ? "animate-spin" : "group-hover:translate-x-0.5"
+                )}
               />
             </motion.button>
           </motion.form>
