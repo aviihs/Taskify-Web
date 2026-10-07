@@ -21,6 +21,7 @@ export interface PolicySection {
 
 export interface PrivacyPolicy {
   lastUpdated: string;
+  summary: string;
   intro: string;
   highlights: PolicyHighlight[];
   sections: PolicySection[];

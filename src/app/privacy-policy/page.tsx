@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 import Icon from "@/components/common/icon";
+import { Reveal } from "@/components/motion/Reveal";
 import PolicyContact from "@/components/privacy-policy/PolicyContact";
 import PolicyHighlights from "@/components/privacy-policy/PolicyHighlights";
-import PolicySectionCard from "@/components/privacy-policy/PolicySectionCard";
+import PolicySection from "@/components/privacy-policy/PolicySection";
 import PolicyToc from "@/components/privacy-policy/PolicyToc";
 import ReadingProgress from "@/components/privacy-policy/ReadingProgress";
 import JsonLd from "@/components/reusable/JsonLd";
@@ -27,7 +28,7 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function PrivacyPolicyPage() {
-  const { lastUpdated, intro, highlights, sections } = privacyPolicy;
+  const { lastUpdated, summary, intro, highlights, sections } = privacyPolicy;
 
   return (
     <main className="bg-taskify-background text-taskify-text pb-28">
@@ -45,7 +46,7 @@ export default function PrivacyPolicyPage() {
         eyebrow={`${site.name} Privacy`}
         eyebrowIcon="lucide:shield-check"
         title="Privacy Policy"
-        description={intro}
+        description={summary}
       >
         <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium ring-1 ring-white/20">
           <Icon
@@ -57,19 +58,31 @@ export default function PrivacyPolicyPage() {
       </PageHero>
       <PolicyHighlights highlights={highlights} />
 
-      <div className="mx-auto mt-16 grid max-w-6xl gap-8 px-4 lg:grid-cols-[250px_1fr] lg:gap-12">
+      <div className="mx-auto mt-16 grid max-w-6xl gap-8 px-4 lg:grid-cols-[240px_1fr] lg:gap-14">
         <aside>
           <PolicyToc sections={sections} />
         </aside>
 
-        <div className="space-y-5">
-          {sections.map((section, index) => (
-            <PolicySectionCard
-              key={section.id}
-              section={section}
-              number={index + 1}
-            />
-          ))}
+        <div className="min-w-0 space-y-6">
+          <article className="bg-taskify-surface border-taskify-border/70 rounded-[2rem] border px-6 py-10 sm:px-12 sm:py-14">
+            <Reveal className="pb-12">
+              <p className="text-taskify-text-muted text-xs font-semibold tracking-[0.16em] uppercase">
+                Effective {lastUpdated}
+              </p>
+              <p className="text-taskify-text mt-4 text-xl leading-relaxed tracking-[-0.01em] text-pretty sm:text-[1.375rem]">
+                {intro}
+              </p>
+            </Reveal>
+
+            {sections.map((section, index) => (
+              <PolicySection
+                key={section.id}
+                section={section}
+                number={index + 1}
+              />
+            ))}
+          </article>
+
           <PolicyContact appName={site.name} contactEmail={site.contactEmail} />
         </div>
       </div>
