@@ -23,6 +23,9 @@ export async function sendContactMessage(contactMessage: ContactMessage) {
   });
 
   if (!response.ok) {
-    throw new Error(`Contact webhook responded with ${response.status}`);
+    const reason = await response.text().catch(() => "");
+    throw new Error(
+      `Contact webhook responded with ${response.status}: ${reason}`
+    );
   }
 }
