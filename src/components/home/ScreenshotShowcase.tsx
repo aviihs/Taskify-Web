@@ -24,7 +24,7 @@ export default function ScreenshotShowcase({
   showcase,
 }: ScreenshotShowcaseProps) {
   return (
-    <section id="screens" className="relative scroll-mt-24 overflow-hidden">
+    <section id="screens" className="relative scroll-mt-32 overflow-hidden">
       <div
         aria-hidden
         className="bg-taskify-accent/15 absolute top-1/2 left-1/2 -z-10 size-[44rem] -translate-1/2 rounded-full blur-3xl"

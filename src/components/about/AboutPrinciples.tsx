@@ -12,7 +12,7 @@ export default function AboutPrinciples({ principles }: AboutPrinciplesProps) {
       <SectionIntro
         {...principles}
         align="left"
-        className="lg:sticky lg:top-28 lg:self-start"
+        className="lg:sticky lg:top-36 lg:self-start"
       />
 
       <Stagger

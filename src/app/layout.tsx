@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import Footer from "@/components/layout/footer/Footer";
 import Navbar from "@/components/layout/header/Navbar";
+import TopBar from "@/components/layout/header/TopBar";
 import MotionProvider from "@/components/motion/MotionProvider";
 import JsonLd from "@/components/reusable/JsonLd";
 import site from "@/data/site.json";
@@ -91,7 +92,11 @@ export default function RootLayout({
         <JsonLd data={buildSiteSchema()} />
         <LocaleProvider>
           <MotionProvider>
-            <Navbar />
+            {/* Top bar and navbar stick together as one header. */}
+            <div className="sticky top-0 z-50">
+              <TopBar />
+              <Navbar />
+            </div>
             <div className="flex-1">{children}</div>
             <Footer />
           </MotionProvider>

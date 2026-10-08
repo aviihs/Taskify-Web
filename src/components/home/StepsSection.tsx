@@ -8,7 +8,7 @@ interface StepsSectionProps {
 
 export default function StepsSection({ steps }: StepsSectionProps) {
   return (
-    <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-24 px-4">
+    <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-32 px-4">
       <SectionIntro {...steps} />
 
       <Stagger as="ol" className="mt-16 grid gap-4 md:grid-cols-3">

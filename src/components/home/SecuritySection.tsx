@@ -11,7 +11,7 @@ interface SecuritySectionProps {
 
 export default function SecuritySection({ security }: SecuritySectionProps) {
   return (
-    <section id="security" className="mx-auto max-w-6xl scroll-mt-24 px-4">
+    <section id="security" className="mx-auto max-w-6xl scroll-mt-32 px-4">
       <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.15fr]">
         <div>
           <SectionIntro

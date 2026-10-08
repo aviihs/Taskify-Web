@@ -15,7 +15,7 @@ export default function ReadingProgress() {
     <motion.div
       aria-hidden
       style={{ scaleX }}
-      className="from-taskify-primary via-taskify-secondary to-taskify-accent fixed inset-x-0 top-16 z-40 h-0.5 origin-left bg-linear-to-r"
+      className="from-taskify-primary via-taskify-secondary to-taskify-accent fixed inset-x-0 top-[101px] z-40 h-0.5 origin-left bg-linear-to-r"
     />
   );
 }

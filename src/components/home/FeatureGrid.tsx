@@ -9,7 +9,7 @@ interface FeatureGridProps {
 
 export default function FeatureGrid({ features }: FeatureGridProps) {
   return (
-    <section id="features" className="mx-auto max-w-6xl scroll-mt-24 px-4">
+    <section id="features" className="mx-auto max-w-6xl scroll-mt-32 px-4">
       <SectionIntro {...features} />
 
       <Stagger

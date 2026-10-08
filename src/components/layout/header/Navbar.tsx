@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-[background-color,border-color,box-shadow]",
+        "border-b transition-[background-color,border-color,box-shadow]",
         isScrolled
           ? "bg-taskify-surface/75 border-taskify-border/60 shadow-[0_8px_30px_-12px_rgb(31_36_53/0.15)] backdrop-blur-xl backdrop-saturate-150"
           : "bg-taskify-surface/90 border-transparent backdrop-blur-md"

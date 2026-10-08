@@ -13,7 +13,7 @@ export default function PolicyContact({
   contactEmail,
 }: PolicyContactProps) {
   return (
-    <section id="contact" className="scroll-mt-24">
+    <section id="contact" className="scroll-mt-32">
       <Reveal className="from-taskify-primary-dark to-taskify-secondary relative isolate overflow-hidden rounded-3xl bg-linear-to-br p-6 text-white sm:p-9">
         <div
           aria-hidden

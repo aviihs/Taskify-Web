@@ -17,7 +17,7 @@ export default function WorkflowSection({ workflow }: WorkflowSectionProps) {
   const edgeInset = `${50 / workflow.stages.length}%`;
 
   return (
-    <section id="workflow" className="mx-auto max-w-6xl scroll-mt-24 px-4">
+    <section id="workflow" className="mx-auto max-w-6xl scroll-mt-32 px-4">
       <div className="bg-taskify-surface border-taskify-border/70 rounded-[2rem] border px-6 py-16 sm:px-12 sm:py-20">
         <SectionIntro
           eyebrow={workflow.eyebrow}

@@ -35,7 +35,7 @@ export default function PolicySection({ section, number }: PolicySectionProps) {
   return (
     <section
       id={section.id}
-      className="border-taskify-border/70 scroll-mt-28 border-t py-12 last:pb-0"
+      className="border-taskify-border/70 scroll-mt-32 border-t py-12 last:pb-0"
     >
       <Reveal>
         <div className="flex items-center gap-3">

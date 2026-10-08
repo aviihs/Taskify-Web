@@ -14,7 +14,7 @@ export default function AboutCreator({ creator }: AboutCreatorProps) {
   return (
     <section
       id="creator"
-      className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-12 px-4 lg:grid-cols-[1fr_1.2fr] lg:gap-20"
+      className="mx-auto grid max-w-6xl scroll-mt-32 items-center gap-12 px-4 lg:grid-cols-[1fr_1.2fr] lg:gap-20"
     >
       <Reveal className="relative mx-auto w-full max-w-md lg:max-w-none">
         <figure className="group relative aspect-3/4 overflow-hidden rounded-[2rem] bg-[#141726] shadow-[0_30px_80px_-40px_rgb(31_36_53/0.6)]">

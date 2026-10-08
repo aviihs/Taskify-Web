@@ -9,7 +9,7 @@ interface DownloadSectionProps {
 
 export default function DownloadSection({ download }: DownloadSectionProps) {
   return (
-    <section id="download" className="mx-auto max-w-6xl scroll-mt-24 px-4">
+    <section id="download" className="mx-auto max-w-6xl scroll-mt-32 px-4">
       <Reveal className="from-taskify-primary-dark via-taskify-primary to-taskify-secondary relative isolate overflow-hidden rounded-[2rem] bg-linear-to-br px-6 py-16 text-center text-white sm:px-12 sm:py-24">
         <div
           aria-hidden

@@ -138,7 +138,7 @@ export default function PolicyToc({ sections }: PolicyTocProps) {
       {/* Desktop: sticky sidebar */}
       <nav
         aria-label="Privacy policy sections"
-        className="sticky top-24 hidden lg:block"
+        className="sticky top-32 hidden lg:block"
       >
         <div className="mb-4 flex items-center justify-between px-3">
           <p className="text-taskify-text-muted text-xs font-semibold tracking-[0.16em] uppercase">
