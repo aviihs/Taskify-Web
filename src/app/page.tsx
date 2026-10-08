@@ -1,6 +1,7 @@
 import DownloadSection from "@/components/home/DownloadSection";
 import FeatureGrid from "@/components/home/FeatureGrid";
 import HomeHero from "@/components/home/HomeHero";
+import ScreenshotShowcase from "@/components/home/ScreenshotShowcase";
 import SecuritySection from "@/components/home/SecuritySection";
 import StatsStrip from "@/components/home/StatsStrip";
 import StepsSection from "@/components/home/StepsSection";
@@ -23,6 +24,7 @@ export default function HomePage() {
         <StatsStrip stats={home.stats} />
       </div>
       <FeatureGrid features={home.features} />
+      <ScreenshotShowcase showcase={home.showcase} />
       <WorkflowSection workflow={home.workflow} />
       <SecuritySection security={home.security} />
       <StepsSection steps={home.steps} />

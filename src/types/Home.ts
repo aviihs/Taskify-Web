@@ -43,6 +43,9 @@ export interface HomeContent {
   };
   stats: { value: string; label: string }[];
   features: SectionIntro & { items: IconCard[] };
+  showcase: SectionIntro & {
+    screens: { src: string; alt: string; caption: string }[];
+  };
   workflow: SectionIntro & {
     stages: { label: string; icon: string; description: string }[];
     priorities: { label: string; tone: Tone }[];

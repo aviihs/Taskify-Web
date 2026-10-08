@@ -97,6 +97,28 @@
       }
     ]
   },
+  "showcase": {
+    "eyebrow": "A closer look",
+    "title": "Designed to feel effortless",
+    "description": "From the first task to the last checkbox, every screen in Taskify is built to stay clear and calm.",
+    "screens": [
+      {
+        "src": "/Screenshot3.jpg",
+        "alt": "Creating a new task in Taskify with project, due date, reminder, priority and assignees",
+        "caption": "Plan every task"
+      },
+      {
+        "src": "/Screenshot2.jpg",
+        "alt": "Taskify confirming a task was created and assigned to the team with live sync",
+        "caption": "Delegate instantly"
+      },
+      {
+        "src": "/Screenshot1.jpg",
+        "alt": "Taskify safe delete dialog offering trash, archive and recovery options",
+        "caption": "Stay in control"
+      }
+    ]
+  },
   "workflow": {
     "eyebrow": "Workflow",
     "title": "Follow every task from start to finish",
