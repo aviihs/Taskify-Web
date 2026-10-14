@@ -1,21 +1,21 @@
 {
   "hero": {
     "eyebrow": "About Taskify",
-    "title": "Calm software for teams with a lot to do",
-    "description": "Taskify exists so teams can stop chasing updates and start finishing work. One place for projects, people and progress, designed to stay out of your way."
+    "title": "About Taskify and its creator",
+    "description": "Taskify is a task and project management app for teams on Android and iOS, created by Shiva Bhusal. One place for projects, people and progress, designed to stay out of your way."
   },
   "story": {
     "eyebrow": "Our story",
     "title": "Built because busy teams deserve better",
     "paragraphs": [
       "Most teams don't fail because of hard problems. They lose time to scattered messages, forgotten follow-ups and nobody being quite sure who owns what.",
-      "We built Taskify to fix that. Every task has an owner, a priority and a clear stage, so anyone can see where things stand without asking. It works the same on your phone and on the web.",
+      "We built Taskify to fix that. Every task has an owner, a priority and a clear stage, so anyone can see where things stand without asking. The app is built for Android and iOS. A browser version, Taskify Web, is planned and will be linked from this website when it launches.",
       "We keep the product focused on purpose. No ads, no trackers and no features that exist only to keep you scrolling. Just the tools a team needs to plan, track and ship."
     ],
     "facts": [
       {
-        "value": "6",
-        "label": "Clear task stages"
+        "value": "Clear",
+        "label": "Task stages for every part of the workflow"
       },
       {
         "value": "4",
@@ -101,10 +101,10 @@
   },
   "cta": {
     "title": "Let's get your team organised",
-    "description": "Download Taskify and create your first project in under a minute, or reach out if you have questions.",
+    "description": "See how to create your first project and assign tasks, or reach out if you have questions about the app.",
     "primaryCta": {
-      "label": "Get the app",
-      "href": "/#download"
+      "label": "Get started with Taskify",
+      "href": "/help/getting-started"
     },
     "secondaryCta": {
       "label": "Contact us",

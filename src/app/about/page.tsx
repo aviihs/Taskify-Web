@@ -15,8 +15,8 @@ import type { AboutContent } from "@/types/About";
 
 const about: AboutContent = aboutContent;
 
-const ABOUT_TITLE = `About ${site.name} and ${site.creator.name}`;
-const ABOUT_DESCRIPTION = `${site.name} is a task and project manager for teams, designed and built by ${site.creator.name}. Learn why it exists and the principles behind it.`;
+const ABOUT_TITLE = `About ${site.name} | Created by ${site.creator.name}`;
+const ABOUT_DESCRIPTION = `Meet ${site.creator.name}, creator of ${site.name}, a task and project management app for teams on Android and iOS. Learn why it exists and how it is built.`;
 
 export const metadata: Metadata = buildPageMetadata({
   title: ABOUT_TITLE,

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 import { AnimatePresence, motion } from "motion/react";
@@ -67,6 +68,23 @@ export default function ContactFaq({ faq }: ContactFaqProps) {
           );
         })}
       </ul>
+      <p className="text-taskify-text-secondary mt-6 leading-relaxed">
+        Setting up your first project? Follow the{" "}
+        <Link
+          href="/help/getting-started"
+          className="text-taskify-link font-semibold underline underline-offset-4 hover:opacity-80"
+        >
+          Taskify getting-started guide
+        </Link>
+        . For account deletion, read{" "}
+        <Link
+          href="/privacy-policy#your-rights"
+          className="text-taskify-link underline underline-offset-4 hover:opacity-80"
+        >
+          your privacy choices
+        </Link>
+        .
+      </p>
     </div>
   );
 }

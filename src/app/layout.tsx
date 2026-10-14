@@ -17,13 +17,13 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-const defaultTitle = `${site.name} by ${site.creator.name} · Task and project manager for teams`;
+const defaultTitle = `${site.name} | Task & Project Management App for Teams`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: defaultTitle,
-    template: `%s · ${site.name}`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,

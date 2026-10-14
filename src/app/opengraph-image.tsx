@@ -12,7 +12,7 @@ export const contentType = OG_IMAGE_CONTENT_TYPE;
 export default function Image() {
   return renderOgImage({
     eyebrow: "Task manager for teams",
-    title: "Plan it. Assign it. Get it done.",
+    title: "Manage projects and team tasks in one place.",
     description: site.tagline,
   });
 }

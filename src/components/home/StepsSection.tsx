@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 import SectionIntro from "@/components/reusable/SectionIntro";
 import type { HomeContent } from "@/types/Home";
@@ -36,6 +38,14 @@ export default function StepsSection({ steps }: StepsSectionProps) {
           </StaggerItem>
         ))}
       </Stagger>
+      <p className="mt-8 text-center">
+        <Link
+          href={steps.guideLink.href}
+          className="text-taskify-link font-semibold underline underline-offset-4 hover:opacity-80"
+        >
+          {steps.guideLink.label}
+        </Link>
+      </p>
     </section>
   );
 }

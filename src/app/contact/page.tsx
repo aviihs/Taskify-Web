@@ -14,8 +14,8 @@ import type { ContactPageContent } from "@/types/ContactPage";
 
 const contact: ContactPageContent = contactContent;
 
-const CONTACT_TITLE = `Contact ${site.name}`;
-const CONTACT_DESCRIPTION = `Get in touch with ${site.creator.name} and the ${site.name} team for product support, feedback, partnerships or privacy requests. Email ${site.contactEmail}.`;
+const CONTACT_TITLE = `Contact & Support | ${site.name}`;
+const CONTACT_DESCRIPTION = `Contact ${site.name} support for Android and iOS app help, feedback, bug reports or privacy requests. Reach ${site.creator.name} at ${site.contactEmail}.`;
 
 export const metadata: Metadata = buildPageMetadata({
   title: CONTACT_TITLE,

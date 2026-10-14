@@ -105,7 +105,7 @@ export async function renderOgImage({
         }}
       >
         <span>{`Built by ${site.creator.name}`}</span>
-        <span>Android · iOS · Web</span>
+        <span>{site.platforms.join(" · ")}</span>
       </div>
     </div>,
     OG_IMAGE_SIZE
