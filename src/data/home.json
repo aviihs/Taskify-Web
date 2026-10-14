@@ -1,9 +1,9 @@
 {
   "hero": {
     "badge": "Built for teams that like getting things done",
-    "title": "Plan it. Assign it.",
-    "highlight": "Get it done.",
-    "description": "Taskify keeps your projects, teams and tasks in one calm place. Set priorities, follow every task from to-do to done, and keep everyone in sync from your phone or the web.",
+    "title": "Taskify — manage projects",
+    "highlight": "and team tasks in one place.",
+    "description": "A task and project management app for teams on Android and iOS, created by Shiva Bhusal. Plan it. Assign it. Get it done. Set priorities, track progress and keep your team in sync.",
     "primaryCta": {
       "label": "Get the app",
       "href": "#download"
@@ -44,7 +44,7 @@
   },
   "stats": [
     {
-      "value": "6",
+      "value": "Clear",
       "label": "Task stages, from To do to Completed"
     },
     {
@@ -62,7 +62,7 @@
   ],
   "features": {
     "eyebrow": "Features",
-    "title": "Everything your team needs, nothing it doesn't",
+    "title": "Task management built around your team",
     "description": "Simple enough for a personal to-do list, structured enough for a whole team.",
     "items": [
       {
@@ -195,7 +195,11 @@
   },
   "steps": {
     "eyebrow": "How it works",
-    "title": "Up and running in three steps",
+    "title": "How to get started with Taskify",
+    "guideLink": {
+      "label": "Read the Taskify getting-started guide",
+      "href": "/help/getting-started"
+    },
     "items": [
       {
         "title": "Create your account",
@@ -213,7 +217,7 @@
   },
   "download": {
     "title": "Ready to get organised?",
-    "description": "Taskify is available on Android and iOS. Download it and create your first project in under a minute.",
+    "description": "Taskify is built for Android and iOS. The official store links will appear here as they go live. Contact us if you need help accessing the app.",
     "stores": [
       {
         "icon": "logos:google-play-icon",
@@ -230,5 +234,52 @@
     ],
     "comingSoonLabel": "Coming soon",
     "contactPrompt": "Questions or feedback? Email us at"
+  },
+  "faq": {
+    "eyebrow": "About the app",
+    "title": "Questions about Taskify",
+    "description": "Product details, supported platforms and where to start.",
+    "items": [
+      {
+        "question": "What is Taskify?",
+        "answer": "Taskify is a task and project management app created by Shiva Bhusal. It brings projects, task assignments, priorities, due dates and progress updates together for individuals and teams."
+      },
+      {
+        "question": "Can my team use the Taskify app?",
+        "answer": "Yes. Create a team, invite members and share projects. Assign work to the right people, discuss it with comments and files, and follow each task from to-do to completion.",
+        "link": {
+          "label": "Learn how to set up your first project",
+          "href": "/help/getting-started"
+        }
+      },
+      {
+        "question": "Which platforms does Taskify support?",
+        "answer": "The Taskify app is built for Android and iOS. Official Google Play and App Store links will be added to this website as they go live.",
+        "link": {
+          "label": "Check app availability",
+          "href": "#download"
+        }
+      },
+      {
+        "question": "Is Taskify Web available in a browser?",
+        "answer": "Taskify Web, the browser app, is planned. For now, Taskify supports Android and iOS. This is the official Taskify website for product information, setup guides and support. When browser access launches, it will be linked from this website."
+      },
+      {
+        "question": "How do I get started with Taskify?",
+        "answer": "Create an account, verify your email, set up a project and add your team. Then create tasks with owners, priorities and due dates. Our getting-started guide walks through the workflow.",
+        "link": {
+          "label": "Read the getting-started guide",
+          "href": "/help/getting-started"
+        }
+      },
+      {
+        "question": "Who created Taskify?",
+        "answer": "Taskify is designed and built by Shiva Bhusal, including the mobile app, backend and this marketing website.",
+        "link": {
+          "label": "Meet the creator of Taskify",
+          "href": "/about"
+        }
+      }
+    ]
   }
 }

@@ -52,7 +52,10 @@ export interface HomeContent {
     priorityCaption: string;
   };
   security: SectionIntro & { linkLabel: string; items: IconCard[] };
-  steps: SectionIntro & { items: { title: string; description: string }[] };
+  steps: SectionIntro & {
+    items: { title: string; description: string }[];
+    guideLink: Link;
+  };
   download: {
     title: string;
     description: string;
@@ -60,4 +63,11 @@ export interface HomeContent {
     comingSoonLabel: string;
     contactPrompt: string;
   };
+  faq: SectionIntro & { items: FaqItem[] };
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+  link?: Link;
 }

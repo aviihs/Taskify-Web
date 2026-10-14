@@ -6,6 +6,11 @@ export interface NavLink {
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", icon: "lucide:house" },
+  {
+    label: "Getting started",
+    href: "/help/getting-started",
+    icon: "lucide:book-open",
+  },
   { label: "About", href: "/about", icon: "lucide:sparkles" },
   { label: "Privacy", href: "/privacy-policy", icon: "lucide:shield-check" },
   { label: "Contact", href: "/contact", icon: "lucide:mail" },

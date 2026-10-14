@@ -17,7 +17,7 @@ import type { PrivacyPolicy } from "@/types/PrivacyPolicy";
 
 const privacyPolicy: PrivacyPolicy = privacyPolicyContent;
 
-const PRIVACY_TITLE = "Privacy Policy";
+const PRIVACY_TITLE = `Privacy Policy | ${site.name}`;
 const PRIVACY_DESCRIPTION = `How the ${site.name} app and website collect, use and protect your information. No ads, no trackers, and your data is never sold.`;
 
 export const metadata: Metadata = buildPageMetadata({
@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
       <PageHero
         eyebrow={`${site.name} Privacy`}
         eyebrowIcon="lucide:shield-check"
-        title="Privacy Policy"
+        title="Taskify Privacy Policy"
         description={summary}
       >
         <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium ring-1 ring-white/20">

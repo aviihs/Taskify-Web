@@ -2,7 +2,7 @@
 // understand who made Taskify and what each page is about.
 import site from "@/data/site.json";
 
-import { absoluteUrl, SITE_URL } from "./seo";
+import { absoluteUrl, PUBLIC_ROUTES, SITE_URL } from "./seo";
 
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -71,7 +71,7 @@ export function buildAppSchema(features: string[]) {
     image: absoluteUrl("/opengraph-image"),
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "Task management",
-    operatingSystem: "Android, iOS",
+    operatingSystem: site.platforms.join(", "),
     featureList: features,
     author: { "@id": CREATOR_ID },
     creator: { "@id": CREATOR_ID },
@@ -108,7 +108,9 @@ export function buildWebPageSchema({
         inLanguage: "en",
         isPartOf: { "@id": WEBSITE_ID },
         about: { "@id": type === "AboutPage" ? CREATOR_ID : ORGANIZATION_ID },
-        ...(dateModified && { dateModified }),
+        dateModified:
+          dateModified ||
+          PUBLIC_ROUTES.find(route => route.path === path)?.lastModified,
         breadcrumb: { "@id": `${url}#breadcrumb` },
       },
       {

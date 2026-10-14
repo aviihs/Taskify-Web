@@ -1,0 +1,90 @@
+{
+  "title": "Getting started with Taskify",
+  "description": "Learn how to set up your first project, invite your team, assign tasks and track progress in the Taskify app for Android and iOS.",
+  "lastUpdated": "2026-10-14",
+  "introduction": "Start with one project and a few clearly defined tasks. Give each task an owner and a deadline, then keep its status up to date so your team can see what needs attention.",
+  "steps": [
+    {
+      "id": "create-account",
+      "title": "Create your Taskify account",
+      "description": "Open the Android or iOS app, sign up with your email address and complete email verification with the one-time code sent to you.",
+      "items": [
+        "Use an email address you can access so you can receive verification and password-reset codes.",
+        "If the verification email does not arrive, check your spam folder and confirm that the address you entered is correct."
+      ]
+    },
+    {
+      "id": "create-project",
+      "title": "Set up your first project",
+      "description": "Create a project for a specific piece of work, such as a website update or a product release. A project keeps related tasks and people together.",
+      "items": [
+        "Choose a name your team will recognise and set the project deadline if the work has one.",
+        "Use the project to group tasks that contribute to the same outcome. You can archive it when the work is finished."
+      ]
+    },
+    {
+      "id": "invite-team",
+      "title": "Bring your team into the project",
+      "description": "Create a team, invite its members and share the project with the people doing the work. Team leaders help keep membership and responsibilities organised.",
+      "items": [
+        "Check that the people who need to contribute are members of the team or project.",
+        "Agree who will own each task before assigning work, so everyone knows what they are responsible for."
+      ]
+    },
+    {
+      "id": "create-task",
+      "title": "Create and assign a task",
+      "description": "Choose the project in the task-creation screen, add a clear title and description, then set the due date, priority and assignees.",
+      "items": [
+        "Write a title that describes an action, such as \"Review the landing page copy\".",
+        "Use the description to explain the expected result and any details your team needs.",
+        "Set a due date and reminder when timing matters. Choose the priority based on how urgent the work is.",
+        "Add the people responsible for the task, save it, and check the project and assignees in the confirmation."
+      ],
+      "image": {
+        "src": "/Screenshot3.jpg",
+        "alt": "Taskify task-creation preview showing a project selector, title, description, due date, reminder, priority and assignees",
+        "caption": "Task creation preview: put the task details and ownership in one place."
+      }
+    },
+    {
+      "id": "track-progress",
+      "title": "Review details and follow progress",
+      "description": "Open the task details and keep the status current as work moves from To do through In progress, Review and Testing to Completed.",
+      "items": [
+        "After creating a task, check its project, deadline and assignees before starting work.",
+        "Update the status as the work progresses so teammates can see what is ready for review or testing.",
+        "Mark work completed when it has met the agreed requirements. Use the activity history to follow changes."
+      ],
+      "image": {
+        "src": "/Screenshot2.jpg",
+        "alt": "Taskify task-confirmation preview showing the created task, project, due date, priority and assigned team members",
+        "caption": "Task confirmation preview: check the deadline, priority and assigned team."
+      }
+    },
+    {
+      "id": "collaborate",
+      "title": "Keep the conversation with the task",
+      "description": "Use task comments and attachments to share updates and the files your team needs. Activity updates and notifications help you follow changes without chasing separate messages.",
+      "items": [
+        "Add a comment when you need clarification or want to explain a status change.",
+        "Attach relevant files to the task so teammates can find them alongside the discussion.",
+        "Review notifications and activity updates for changes that affect your work."
+      ]
+    }
+  ],
+  "troubleshooting": [
+    {
+      "title": "Waiting for a verification email?",
+      "description": "Check the email address you used and your spam folder. If verification is still blocked, contact Taskify support with a description of what happened."
+    },
+    {
+      "title": "Cannot find a shared project?",
+      "description": "Confirm that you are signed in with the account invited to the project. Ask your team leader to check your membership and whether the project has been shared with you."
+    },
+    {
+      "title": "Need help with a bug?",
+      "description": "Tell support what you were doing, what happened, your device's Android or iOS version and your Taskify app version."
+    }
+  ]
+}

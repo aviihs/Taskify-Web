@@ -13,6 +13,7 @@ const FOOTER_LINK_GROUPS = [
       { label: "Features", href: "/#features" },
       { label: "Workflow", href: "/#workflow" },
       { label: "How it works", href: "/#how-it-works" },
+      { label: "Getting started", href: "/help/getting-started" },
       { label: "Download", href: "/#download" },
     ],
   },

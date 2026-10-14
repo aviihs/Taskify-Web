@@ -3,6 +3,7 @@
 // Format: https://llmstxt.org
 import aboutContent from "@/data/about.json";
 import contactContent from "@/data/contact.json";
+import guideContent from "@/data/getting-started.json";
 import homeContent from "@/data/home.json";
 import privacyPolicyContent from "@/data/privacy-policy.json";
 import site from "@/data/site.json";
@@ -23,7 +24,9 @@ function buildKeyFacts() {
     `- Name: ${site.name}`,
     `- What it is: a task and project management app for teams`,
     `- Created by: ${site.creator.name} (${site.creator.role}), website ${site.creator.url}, GitHub ${site.creator.github}`,
-    `- Platforms: Android and iOS, plus this website`,
+    `- App platforms: ${site.platforms.join(" and ")}`,
+    `- Website: the official product information, guides and support site`,
+    `- Taskify Web: browser app planned; access will be linked from this website at launch`,
     `- Contact: ${site.contactEmail}`,
     `- Privacy: no ads, no third-party trackers, data is never sold`,
   ].join("\n");
@@ -75,6 +78,18 @@ export function buildLlmsFullTxt() {
   const faqLines = contact.faq.items
     .map(item => `### ${item.question}\n\n${item.answer}`)
     .join("\n\n");
+  const productFaqLines = home.faq.items
+    .map(item => `### ${item.question}\n\n${item.answer}`)
+    .join("\n\n");
+  const guideLines = guideContent.steps
+    .map(
+      (step, index) =>
+        `### ${index + 1}. ${step.title}\n\n${step.description}\n\n${step.items.map(item => `- ${item}`).join("\n")}`
+    )
+    .join("\n\n");
+  const troubleshootingLines = guideContent.troubleshooting
+    .map(item => `### ${item.title}\n\n${item.description}`)
+    .join("\n\n");
   const policySections = privacyPolicy.sections
     .map(section => {
       const parts = [`### ${section.title}`];
@@ -115,6 +130,26 @@ Tasks move through: ${stageNames}. Priority levels: ${priorityNames}.
 ### Privacy and security
 
 ${securityLines}
+
+### App availability
+
+${home.download.description}
+
+### Product questions
+
+${productFaqLines}
+
+## Getting started (${absoluteUrl("/help/getting-started")})
+
+${guideContent.description}
+
+${guideContent.introduction}
+
+${guideLines}
+
+### Setup help
+
+${troubleshootingLines}
 
 ## About (${absoluteUrl("/about")})
 

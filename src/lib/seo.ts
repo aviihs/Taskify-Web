@@ -2,16 +2,11 @@ import type { Metadata } from "next";
 
 import site from "@/data/site.json";
 
-// Absolute origin used for canonical URLs, the sitemap, Open Graph and
-// structured data. Set NEXT_PUBLIC_SITE_URL in production; on Vercel the
-// production domain is picked up automatically.
+// Keep canonical URLs on the official domain, including preview deployments.
+// NEXT_PUBLIC_SITE_URL can override the origin for a deliberate domain change.
 function resolveSiteUrl() {
-  const configuredUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL &&
-      `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
-    "http://localhost:3000";
-  return configuredUrl.replace(/\/$/, "");
+  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL || site.url;
+  return new URL(configuredUrl).origin;
 }
 
 export const SITE_URL = resolveSiteUrl();
@@ -21,18 +16,29 @@ export function absoluteUrl(path = "/") {
 }
 
 // Every public route, in the order it should appear in the sitemap and llms.txt.
+// Update lastModified when content, metadata or links materially change.
 export const PUBLIC_ROUTES = [
   {
     path: "/",
     title: "Home",
     summary: "What Taskify is, its features, workflow and download links.",
     priority: 1,
+    lastModified: "2026-10-14",
+  },
+  {
+    path: "/help/getting-started",
+    title: "Getting started with Taskify",
+    summary:
+      "How to create an account, set up a project, assign tasks and follow progress in the Android and iOS app.",
+    priority: 0.8,
+    lastModified: "2026-10-14",
   },
   {
     path: "/about",
     title: "About",
     summary: `Why Taskify exists, its values, and its creator ${site.creator.name}.`,
     priority: 0.8,
+    lastModified: "2026-10-14",
   },
   {
     path: "/contact",
@@ -40,12 +46,14 @@ export const PUBLIC_ROUTES = [
     summary:
       "How to reach the Taskify team for support, feedback or privacy requests.",
     priority: 0.7,
+    lastModified: "2026-10-14",
   },
   {
     path: "/privacy-policy",
     title: "Privacy Policy",
     summary: "What data Taskify collects, how it is used and your rights.",
     priority: 0.5,
+    lastModified: "2026-10-14",
   },
 ] as const;
 
@@ -65,7 +73,7 @@ export function buildPageMetadata({
   keywords = [],
 }: PageMetadataOptions): Metadata {
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: [...keywords, ...site.keywords],
     alternates: { canonical: path },
@@ -74,12 +82,12 @@ export function buildPageMetadata({
       siteName: site.name,
       locale: site.locale,
       url: path,
-      title: `${title} · ${site.name}`,
+      title,
       description,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} · ${site.name}`,
+      title,
       description,
     },
   };
